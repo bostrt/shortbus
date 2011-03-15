@@ -5,8 +5,8 @@
 #endif
 #include <SDL/SDL.h>
 #include <iostream>
-#include "player.cpp"
-#include "walls.hpp"
+#include "player.hpp"
+#include "wall.hpp"
 
 using namespace std;
 
@@ -17,8 +17,8 @@ int main ( int argc, char** argv )
    // SDL_Event event;
     SDL_Surface* horiz=NULL;
     SDL_Surface* vert=NULL;
-    Player player;
-    Walls wallv("vert.bmp");
+    Player player = Player();
+    Wall wallv("vert.bmp");
     SDL_Event event;
    
     SDL_Init(SDL_INIT_EVERYTHING);

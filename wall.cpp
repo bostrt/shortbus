@@ -1,11 +1,11 @@
 #include <SDL/SDL.h>
 #include <string>
-#include "walls.hpp"
+#include "wall.hpp"
 
 using namespace std;
 extern SDL_Surface *screen;
 
-Walls::Walls(string filename)
+Wall::Wall(string filename)
 {
 
     char *cfilename;
@@ -15,7 +15,7 @@ Walls::Walls(string filename)
     wall=SDL_LoadBMP(cfilename);
 
 }
-void Walls::draw(int xPos,int yPos,int width,int height)
+void Wall::draw(int xPos,int yPos,int width,int height)
 {
     SDL_Rect dest;
     dest.x=xPos;

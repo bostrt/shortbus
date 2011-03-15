@@ -1,15 +1,15 @@
 CXX=g++
 CXXFLAGS=-g -lSDL
-PROJECT=sedex
+PROJECT=shortbus
 
-all: main.o walls.o aiopponents.o bus.o vehicle.o player.o
-	$(CXX) $(CXXFLAGS) main.o walls.o -o sedex
+all: main.o wall.o aiopponents.o bus.o vehicle.o player.o model.o
+	$(CXX) $(CXXFLAGS) main.o wall.o aiopponents.o bus.o vehicle.o player.o model.o -o $(PROJECT)
 
 main.o: main.cpp
 	$(CXX) $(CXXFLAGS) -c main.cpp -o main.o
 
-walls.o: walls.cpp 
-	$(CXX) $(CXXFLAGS) -c walls.cpp -o walls.o
+wall.o: wall.cpp 
+	$(CXX) $(CXXFLAGS) -c wall.cpp -o wall.o
 
 aiopponents.o: aiopponents.cpp
 	$(CXX) $(CXXFLAGS) -c aiopponents.cpp -o aiopponents.o
@@ -22,6 +22,9 @@ vehicle.o: vehicle.cpp vehicle.hpp
 
 player.o: player.cpp player.hpp
 	$(CXX) $(CXXFLAGS) -c player.cpp -o player.o
+
+model.o: model.cpp model.hpp
+	$(CXX) $(CXXFLAGS) -c model.cpp -o model.o
 
 clean:
 	rm *.o $(PROJECT)

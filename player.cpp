@@ -14,21 +14,21 @@ Player::Player()
 
 void Player::handleEvent(SDL_Event *event)
 {
-  // Check direction.
-  if(event->type==SDL_KEYDOWN)
-    {
-      switch(event->key.keysym.sym)
-	{
-	case SDLK_UP:
-	  break;
-	case SDLK_DOWN:
-	  break;
-	case SDLK_LEFT:
-	  break;
-	case SDLK_RIGHT:
-	  break;
-	}
-    }
+    // Check direction.
+    if(event->type==SDL_KEYDOWN)
+        {
+            switch(event->key.keysym.sym)
+                {
+                case SDLK_UP:
+                    break;
+                case SDLK_DOWN:
+                    break;
+                case SDLK_LEFT:
+                    break;
+                case SDLK_RIGHT:
+                    break;
+                }
+        }
 
 }
 
