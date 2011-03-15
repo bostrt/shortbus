@@ -10,6 +10,11 @@ Walls(string filename);
 
 Walls::Walls(string filename)
 {
-wall=SDL_LoadBMP(filename);
+
+char *cfilename;
+
+sz = new char[filename.length() + 1];
+strcpy(cfilename, filename.c_str());
+wall=SDL_LoadBMP(cfilename);
 
 }
