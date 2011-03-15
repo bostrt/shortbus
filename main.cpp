@@ -8,16 +8,17 @@
 #include <iostream>
 using namespace std;
 SDL_Surface* screen;
+SDL_Event event;
 //include class files here
 #include "player.cpp"
 #include "walls.cpp"
 int main ( int argc, char** argv )
 {
-    SDL_Event event;
+   // SDL_Event event;
     SDL_Surface* horiz=NULL;
     SDL_Surface* vert=NULL;
     SDL_Surface* bus = NULL;
-    Player player();
+    Player player;
     Walls wallv("vert.bmp");
    
     SDL_Init(SDL_INIT_EVERYTHING);
@@ -34,7 +35,8 @@ int main ( int argc, char** argv )
     while(!done)
     {
         while(SDL_PollEvent(&event))
-        {
+       {
+          player.handleEvent();
             if(event.type==SDL_QUIT)
             {
                 done=true;
