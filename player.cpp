@@ -1,29 +1,37 @@
 #include <SDL/SDL.h>
+#include "vehicle.hpp"
+
 using namespace std;
+
 class Player{
-SDL_Surface* player;
 public:
-//using ints for now maybe a double direction
-int xPos,yPos,velocity,direction;
-Player();
-void handleEvent();
+  SDL_Surface* player;
+  //  Vehicle *vehicle;
+  Player();
+  void handleEvent(SDL_Event *event);
 };
+
 Player::Player()
 {
-player=SDL_LoadBMP("bus.bmp");
+  player=SDL_LoadBMP("bus.bmp");
 }
-void Player::handleEvent()
+
+void Player::handleEvent(SDL_Event *event)
 {
-if(event.type==SDL_KEYDOWN)
-{
-switch(event.key.keysym.sym)
-{
-case SDLK_UP:break;
-case SDLK_DOWN:break;
-case SDLK_LEFT:break;
-case SDLK_RIGHT:break;
-}
-}
+  // Check direction.
+  if(event->type==SDL_KEYDOWN)
+    {
+      switch(event->key.keysym.sym)
+	{
+	case SDLK_UP:
+	  break;
+	case SDLK_DOWN:
+	  break;
+	case SDLK_LEFT:
+	  break;
+	case SDLK_RIGHT:break;
+	}
+    }
 
 }
 

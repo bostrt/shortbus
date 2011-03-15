@@ -3,15 +3,15 @@
 #else
     #include <stdlib.h>
 #endif
-
 #include <SDL/SDL.h>
 #include <iostream>
-using namespace std;
-SDL_Surface* screen;
-SDL_Event event;
-//include class files here
 #include "player.cpp"
 #include "walls.hpp"
+
+using namespace std;
+
+SDL_Surface* screen;
+
 int main ( int argc, char** argv )
 {
    // SDL_Event event;
@@ -20,6 +20,7 @@ int main ( int argc, char** argv )
     SDL_Surface* bus = NULL;
     Player player;
     Walls wallv("vert.bmp");
+    SDL_Event event;
    
     SDL_Init(SDL_INIT_EVERYTHING);
     bus=SDL_LoadBMP("bus.bmp");
@@ -36,7 +37,7 @@ int main ( int argc, char** argv )
     {
         while(SDL_PollEvent(&event))
        {
-          player.handleEvent();
+          player.handleEvent(&event);
             if(event.type==SDL_QUIT)
             {
                 done=true;
