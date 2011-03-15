@@ -1,8 +1,14 @@
 #include <SDL/SDL.h>
-void initwalls()
+#include <string>
+class Walls{
+public:
+SDL_Surface* wall;
+
+Walls(string filename)
+};
+
+Walls::Walls(string filename)
 {
-SDL_Surface* horiz=NULL;
-SDL_Surface* vert=NULL;
-horiz=SDL_LoadBMP("horiz.bmp");
-vert=SDL_LoadBMP("vert.bmp");
+wall=SDL_LoadBmp(filename);
+
 }
