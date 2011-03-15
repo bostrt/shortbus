@@ -11,7 +11,7 @@ SDL_Surface* screen;
 SDL_Event event;
 //include class files here
 #include "player.cpp"
-#include "walls.cpp"
+#include "walls.hpp"
 int main ( int argc, char** argv )
 {
    // SDL_Event event;
