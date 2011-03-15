@@ -29,7 +29,7 @@ int main ( int argc, char** argv )
     SDL_SetColorKey( bus, SDL_SRCCOLORKEY, colorkey );
     SDL_BlitSurface(bus,NULL,screen,NULL);
    //x,y,width,height
-    wallv.draw(50,50,32,64);
+    wallv.draw(740,540,32,64);
     //SDL_Flip(screen);
     bool done=false;
     while(!done)
