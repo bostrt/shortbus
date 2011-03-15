@@ -30,7 +30,7 @@ int main ( int argc, char** argv )
     SDL_BlitSurface(bus,NULL,screen,NULL);
    //x,y,width,height
     wallv.draw(50,50,32,64);
-    SDL_Flip(screen);
+    //SDL_Flip(screen);
     bool done=false;
     while(!done)
     {
@@ -43,7 +43,7 @@ int main ( int argc, char** argv )
             }
 
         }
-
+     SDL_Flip(screen);
     }
 
     return 0;

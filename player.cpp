@@ -3,6 +3,8 @@ using namespace std;
 class Player{
 SDL_Surface* player;
 public:
+//using ints for now maybe a double direction
+int xPos,yPos,velocity,direction;
 Player();
 void handleEvent();
 };
