@@ -1,19 +1,15 @@
 #include <SDL/SDL.h>
+#include "player.hpp"
 #include "vehicle.hpp"
+#include "bus.hpp"
 
 using namespace std;
 
-class Player{
-public:
-  SDL_Surface* player;
-  //  Vehicle *vehicle;
-  Player();
-  void handleEvent(SDL_Event *event);
-};
+Vehicle vehicle = Bus(0, 0);
 
 Player::Player()
 {
-  player=SDL_LoadBMP("bus.bmp");
+  //vehicle = (Vehicle)Bus(0, 0);
 }
 
 void Player::handleEvent(SDL_Event *event)
@@ -29,7 +25,8 @@ void Player::handleEvent(SDL_Event *event)
 	  break;
 	case SDLK_LEFT:
 	  break;
-	case SDLK_RIGHT:break;
+	case SDLK_RIGHT:
+	  break;
 	}
     }
 

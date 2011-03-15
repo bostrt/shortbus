@@ -20,7 +20,7 @@ bus.o: bus.cpp bus.hpp
 vehicle.o: vehicle.cpp vehicle.hpp
 	$(CXX) $(CXXFLAGS) -c vehicle.cpp -o vehicle.o
 
-player.o: player.cpp
+player.o: player.cpp player.hpp
 	$(CXX) $(CXXFLAGS) -c player.cpp -o player.o
 
 clean:
