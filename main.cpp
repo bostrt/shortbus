@@ -8,6 +8,8 @@
 #include <iostream>
 using namespace std;
 SDL_Surface* screen;
+//include class files here
+#include "player.cpp"
 #include "walls.cpp"
 int main ( int argc, char** argv )
 {
@@ -15,8 +17,8 @@ int main ( int argc, char** argv )
     SDL_Surface* horiz=NULL;
     SDL_Surface* vert=NULL;
     SDL_Surface* bus = NULL;
-   
-   Walls wallv("vert.bmp");
+    Player player();
+    Walls wallv("vert.bmp");
    
     SDL_Init(SDL_INIT_EVERYTHING);
     bus=SDL_LoadBMP("bus.bmp");
