@@ -3,16 +3,9 @@
 #else
     #include <stdlib.h>
 #endif
-#ifdef __APPLE__
+
 #include <SDL/SDL.h>
-#else
-#include<GL/gl.h>
-#include<GL/glu.h>
-#include "add.cpp"
-#include <SDL.h>
-#include <SDL_opengl.h>
 #include <iostream>
-#endif
 using namespace std;
 
 #include "walls.cpp"
