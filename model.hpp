@@ -12,14 +12,14 @@
 
 #include <SDL/SDL.h>
 #include <string>
-
+using namespace std;
 class Model {
 protected:
     double x, y;
     SDL_Surface *image;
 public:
-    Model(double x, double y, std::string filename);
-    void draw(SDL_Surface* modeldraw);
+    Model(double x, double y, string filename);
+    void draw();
     void setX(double x1);
     void setY(double y1);
     double getX();
