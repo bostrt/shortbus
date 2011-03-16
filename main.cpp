@@ -23,7 +23,7 @@ int main ( int argc, char** argv )
    
     SDL_Init(SDL_INIT_EVERYTHING);
     screen=SDL_SetVideoMode(800,600,32,SDL_HWSURFACE);
-     SDL_WM_SetCaption("SHORTBUS","SHORTBUS");
+     SDL_WM_SetCaption("SHOЯTBUS","SHOЯTBUS");
     SDL_FillRect( screen, &screen->clip_rect, SDL_MapRGB( screen->format, 0xFF, 0xFF, 0xFF ) );
     //Uint32 colorkey = SDL_MapRGB( bus->format, 0xFF, 0xFF, 0xFF );
     //SDL_SetColorKey( bus, SDL_SRCCOLORKEY, colorkey );
