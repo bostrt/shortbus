@@ -1,21 +1,18 @@
 #include <SDL/SDL.h>
 #include "aiopponents.hpp"
 #include <string>
-
+#include "model.hpp"
 using namespace std;
 
-AiOponents::AiOponents(int x1,int y1, string filename, int pts,int speedtype){
-	x=x1;
-	y=y1;
+AiOponents::AiOponents(int x1,int y1, string filename, int pts):Model(x1,y1,filename){
+	
 	points=pts;
-        char *cfilename;
-        cfilename = new char[filename.length() + 1];
-        strcpy(cfilename, filename.c_str());
-        image=SDL_LoadBMP(cfilename);
+        
 
 }
 void AiOponents::update(){
 //insert movement and deathcalls here
+
 }
 void AiOponents::die(){
 //sends player added points and removes sprite
