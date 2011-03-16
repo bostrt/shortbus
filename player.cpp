@@ -8,6 +8,7 @@
 
  Player::Player()
  {
+     pointtotal=0;
      vehicle = new Bus(0, 0);
  }
 
