@@ -1,7 +1,7 @@
 #ifdef __cplusplus
-    #include <cstdlib>
+#include <cstdlib>
 #else
-    #include <stdlib.h>
+#include <stdlib.h>
 #endif
 #include <SDL/SDL.h>
 #include <iostream>
@@ -14,7 +14,7 @@ SDL_Surface* screen;
 
 int main ( int argc, char** argv )
 {
-   // SDL_Event event;
+    // SDL_Event event;
     SDL_Surface* horiz=NULL;
     SDL_Surface* vert=NULL;
     Player player = Player();
@@ -32,18 +32,18 @@ int main ( int argc, char** argv )
 
     bool done=false;
     while(!done)
-    {
-        while(SDL_PollEvent(&event))
-       {
-          player.handleEvent(&event);
-            if(event.type==SDL_QUIT)
-            {
-                done=true;
-            }
+        {
+            while(SDL_PollEvent(&event))
+                {
+                    player.handleEvent(&event);
+                    if(event.type==SDL_QUIT)
+                        {
+                            done=true;
+                        }
 
+                }
+            SDL_Flip(screen);
         }
-     SDL_Flip(screen);
-    }
 
     return 0;
 }

@@ -5,11 +5,9 @@
 
 using namespace std;
 
-Vehicle vehicle = Bus(0, 0);
-
 Player::Player()
 {
-  //vehicle = (Vehicle)Bus(0, 0);
+    vehicle = new Bus(0, 0);
 }
 
 void Player::handleEvent(SDL_Event *event)
