@@ -21,7 +21,7 @@ protected:
 public:
 
     Model(double x, double y, string filename);
-    void draw();
+    void draw(SDL_Surface *screen);
     void setX(double x1);
     void setY(double y1);
     double getX();

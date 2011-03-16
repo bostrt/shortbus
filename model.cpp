@@ -1,8 +1,8 @@
 #include <SDL/SDL.h>
 #include <string>
+#include <iostream>
 #include "model.hpp"
 using namespace std;
-extern SDL_Surface* screen;
 
 // Constructor
 Model::Model(double x1, double y1, string filename)
@@ -36,7 +36,7 @@ void Model::setX(double x1){
 void Model::setY(double y1){
     y = y1;
 }
-void Model::draw()
+void Model::draw(SDL_Surface *screen)
 {
     //here weshould call some SDL function for drawing to 
     // the screen. Use x and y. 
@@ -47,5 +47,6 @@ void Model::draw()
    modelpos.y=y;
    boundingbox.x=x;
    boundingbox.y=y;   
+
    SDL_BlitSurface(image,NULL,screen,&modelpos);
 }

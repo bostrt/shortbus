@@ -8,6 +8,7 @@ class Player {
 public:
     Player();
     void handleEvent(SDL_Event *event);
+    void drawVehicle(SDL_Surface *screen);
     Vehicle *getVehicle();
 private:
     Vehicle *vehicle;

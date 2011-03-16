@@ -23,7 +23,7 @@ int main ( int argc, char** argv )
    
     SDL_Init(SDL_INIT_EVERYTHING);
     screen=SDL_SetVideoMode(800,600,32,SDL_HWSURFACE);
-     SDL_WM_SetCaption("SHOЯTBUS","SHOЯTBUS");
+    SDL_WM_SetCaption("SHOЯTBUS","SHOЯTBUS");
     SDL_FillRect( screen, &screen->clip_rect, SDL_MapRGB( screen->format, 0xFF, 0xFF, 0xFF ) );
     //Uint32 colorkey = SDL_MapRGB( bus->format, 0xFF, 0xFF, 0xFF );
     //SDL_SetColorKey( bus, SDL_SRCCOLORKEY, colorkey );
@@ -32,18 +32,23 @@ int main ( int argc, char** argv )
     wallv.draw(740,500,32,64);
 
     bool done=false;
+    // See http://en.wikipedia.org/wiki/Game_programming#Game_structure
     while(!done){
         // Get user input.
         while(SDL_PollEvent(&event)){
             player->handleEvent(&event);
-            if(event.type==SDL_QUIT)
-                {
-                    done=true;
-                }
-
+            if(event.type==SDL_QUIT){
+                done=true;
+            }
         }
+        // AI
+        // move enemies
+        // collisions
+        // draw graphics
+        player->drawVehicle(screen);
         SDL_Flip(screen);
-
+        // play sounds
+        sleep(.2);
     }
 
     return 0;
