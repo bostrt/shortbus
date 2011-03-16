@@ -27,8 +27,14 @@ void Model::setX(double x1){
 void Model::setY(double y1){
     y = y1;
 }
-void Model::draw()
+void Model::draw(SDL_Surface* modeldraw)
 {
-    // Here we should call some SDL function for drawing to 
+    //here weshould call some SDL function for drawing to 
     // the screen. Use x and y. 
+ 
+  SDL_Rect modelpos;
+
+   modelpos.x=x;
+   modelpos.y=y;
+   SDL_BlitSurface(modeldraw,NULL,screen,&modelpos);
 }

@@ -19,7 +19,7 @@ protected:
     SDL_Surface *image;
 public:
     Model(double x, double y, std::string filename);
-    void draw();
+    void draw(SDL_Surface* modeldraw);
     void setX(double x1);
     void setY(double y1);
     double getX();
