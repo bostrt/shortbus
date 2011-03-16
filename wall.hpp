@@ -6,6 +6,7 @@
 
 class Wall {
 public:
+    SDL_Rect boundingbox;
     Wall(std::string filename);
     void draw(int x, int y, int width, int height);
 private:

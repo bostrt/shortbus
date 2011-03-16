@@ -16,8 +16,10 @@ using namespace std;
 class Model {
 protected:
     double x, y;
+    SDL_Rect boundingbox;
     SDL_Surface *image;
 public:
+
     Model(double x, double y, string filename);
     void draw();
     void setX(double x1);
