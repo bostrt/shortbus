@@ -1,4 +1,5 @@
 #include <SDL/SDL.h>
+//#include <SDL/SDL_Image.h>
 #include <string>
 #include <iostream>
 #include "model.hpp"
@@ -15,10 +16,10 @@ Model::Model(double x1, double y1, string filename)
     // TODO: Load and set SDL_Surface
     x = x1;
     y = y1;
-   boundingbox.x=x;
-   boundingbox.y=y;
-   boundingbox.w=image->w;
-   boundingbox.h=image->h;
+//   boundingbox.x=x;
+ //  boundingbox.y=y;
+ //  boundingbox.w=image->w;
+ //  boundingbox.h=image->h;
 }
 
 double Model::getX(){
@@ -45,8 +46,9 @@ void Model::draw(SDL_Surface *screen)
    
    modelpos.x=x;
    modelpos.y=y;
-   boundingbox.x=x;
-   boundingbox.y=y;   
+  // boundingbox.x=x;
+  // boundingbox.y=y;   
 
    SDL_BlitSurface(image,NULL,screen,&modelpos);
+  
 }

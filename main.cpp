@@ -20,7 +20,7 @@ int main ( int argc, char** argv )
     Player *player = new Player();
     Wall wallv("vert.bmp");
     SDL_Event event;
-   
+   SDL_Surface* bg = SDL_LoadBMP("bg.bmp");  
     SDL_Init(SDL_INIT_EVERYTHING);
     screen=SDL_SetVideoMode(800,600,32,SDL_HWSURFACE);
     SDL_WM_SetCaption("SHOЯTBUS","SHOЯTBUS");
@@ -45,6 +45,8 @@ int main ( int argc, char** argv )
         // move enemies
         // collisions
         // draw graphics
+        //LEAVE THIS NEXT LINE HERE
+        SDL_BlitSurface(bg,NULL,screen,NULL);
         player->drawVehicle(screen);
         SDL_Flip(screen);
         // play sounds
