@@ -11,7 +11,7 @@ Model::Model(double x1, double y1, string filename)
     cfilename = new char[filename.length() + 1];
     strcpy(cfilename, filename.c_str());
     image=SDL_LoadBMP(cfilename);
- 
+    
     // TODO: Load and set SDL_Surface
     x = x1;
     y = y1;
