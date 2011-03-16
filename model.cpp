@@ -1,46 +1,34 @@
 #include <SDL/SDL.h>
+#include <string>
 #include "model.hpp"
-#include "math.h"
+
 extern SDL_Surface* screen;
+
 // Constructor
-Model::Model(double x1, double y1)
+Model::Model(double x1, double y1, std::string filename)
 {
+    // TODO: Load and set SDL_Surface
     x = x1;
     y = y1;
 }
 
-
-// Add to velocity
-void Model::accelerate()
-{
-    velocity ++;
+double Model::getX(){
+    return x;
 }
 
-// Subtract from velocity
-void Model::deccelerate()
-{
-    velocity --;
+double Model::getY(){
+    return y;
 }
 
-// Add to direction
-void Model::turnRight()
-{
-    if(direction > 360)
-        direction = 0;
-    direction ++;
+void Model::setX(double x1){
+    x = x1;
 }
 
-// Subtract from direction
-void Model::turnLeft()
-{
-    if(direction < 0)
-        direction = 360;
-    direction --;
+void Model::setY(double y1){
+    y = y1;
 }
 void Model::draw()
 {
-double dx = velocity* cos(direction);
-double dy = velocity*sin(direction);
-x+=dx;
-y+=dy;
+    // Here we should call some SDL function for drawing to 
+    // the screen. Use x and y. 
 }

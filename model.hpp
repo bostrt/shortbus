@@ -10,16 +10,21 @@
 #ifndef MODEL_H
 #define MODEL_H
 
+#include <SDL/SDL.h>
+#include <string>
+
 class Model {
 protected:
-    double x, y, velocity, direction;
+    double x, y;
+    SDL_Surface *image;
 public:
-    Model(double x, double y);
-    void accelerate();
-    void deccelerate();
-    void turnRight();
-    void turnLeft();
+    Model(double x, double y, std::string filename);
     void draw();
+    void setX(double x1);
+    void setY(double y1);
+    double getX();
+    double getY();
+    virtual void update() = 0;
 };
 
 #endif
