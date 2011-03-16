@@ -1,6 +1,7 @@
 #include <SDL/SDL.h>
 #include "model.hpp"
-
+#include "math.h"
+extern SDL_Surface* screen;
 // Constructor
 Model::Model(double x1, double y1)
 {
@@ -35,4 +36,11 @@ void Model::turnLeft()
     if(direction < 0)
         direction = 360;
     direction --;
+}
+void Model::draw()
+{
+double dx = velocity* cos(direction);
+double dy = velocity*sin(direction);
+x+=dx;
+y+=dy;
 }
