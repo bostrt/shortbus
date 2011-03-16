@@ -14,7 +14,8 @@
 
  void Player::handleEvent(SDL_Event *event)
  {
-    //SDL_GetKeyState
+    //SDL_GetKeyState()
+    //SDL_get key state returns an array and wer can check for boolean values(afaik)
      // Check direction.
      if(event->type==SDL_KEYDOWN){
          switch(event->key.keysym.sym)
