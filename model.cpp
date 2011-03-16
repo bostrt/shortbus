@@ -15,6 +15,10 @@ Model::Model(double x1, double y1, string filename)
     // TODO: Load and set SDL_Surface
     x = x1;
     y = y1;
+   boundingbox.x=x;
+   boundingbox.y=y;
+   boundingbox.w=image->w;
+   boundingbox.h=image->h;
 }
 
 double Model::getX(){
@@ -37,9 +41,11 @@ void Model::draw()
     //here weshould call some SDL function for drawing to 
     // the screen. Use x and y. 
  
-  SDL_Rect modelpos;
-
+   SDL_Rect modelpos;
+   
    modelpos.x=x;
    modelpos.y=y;
+   boundingbox.x=x;
+   boundingbox.y=y;   
    SDL_BlitSurface(image,NULL,screen,&modelpos);
 }
