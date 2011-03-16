@@ -4,7 +4,7 @@
 
 using namespace std;
 
-AiOponents::AiOponents(int x1,int y1, string filename, int pts){
+AiOponents::AiOponents(int x1,int y1, string filename, int pts,int speedtype){
 	x=x1;
 	y=y1;
 	points=pts;
@@ -17,5 +17,8 @@ AiOponents::AiOponents(int x1,int y1, string filename, int pts){
 void AiOponents::update(){
 //insert movement and deathcalls here
 }
+void AiOponents::die(){
+//sends player added points and removes sprite
 
+}
 
