@@ -2,5 +2,5 @@
 
 class Bus: public Vehicle{
 public:
-  Bus(double x, double y);
+    Bus(double x, double y);
 };

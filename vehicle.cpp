@@ -9,7 +9,7 @@ using namespace std;
  * Constructor
  * Passed initial position and BMP.
  */
-Vehicle::Vehicle(double x1, double y1, string filename):Model(x, y, filename)
+Vehicle::Vehicle(double x1, double y1, string filename):Model(x1, y1, filename)
 {
 }
 
@@ -41,10 +41,19 @@ void Vehicle::turnLeft()
     direction --;
 }
 
+// Update the vehicle's X and Y position
 void Vehicle::update()
 {
     double dx = velocity* cos(direction);
     double dy = velocity* sin(direction);
     x+=dx;
     y+=dy;
+}
+
+double Vehicle::getVelocity(){
+    return velocity;
+}
+
+double Vehicle::getDirection(){
+    return direction;
 }

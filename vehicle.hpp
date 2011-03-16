@@ -10,11 +10,13 @@ class Vehicle: public Model{
 protected:
     double velocity, direction;
 public:
-    Vehicle(double x, double y, string filename);
+    Vehicle(double x1, double y1, string filename);
     void accelerate();
     void deccelerate();
     void turnRight();
     void turnLeft();
+    double getVelocity();
+    double getDirection();
     virtual void update();
 };
 

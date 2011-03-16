@@ -18,12 +18,16 @@ void Player::handleEvent(SDL_Event *event)
             switch(event->key.keysym.sym)
                 {
                 case SDLK_UP:
+                    vehicle->accelerate();
                     break;
                 case SDLK_DOWN:
+                    vehicle->deccelerate();
                     break;
                 case SDLK_LEFT:
+                    vehicle->turnLeft();
                     break;
                 case SDLK_RIGHT:
+                    vehicle->turnRight();
                     break;
                 }
         }
