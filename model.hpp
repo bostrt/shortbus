@@ -19,7 +19,7 @@ protected:
     SDL_Rect boundingbox;
     SDL_Surface *image;
 public:
-
+    
     Model(double x, double y, string filename);
     void draw(SDL_Surface *screen);
     void setX(double x1);
