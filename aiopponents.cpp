@@ -1,10 +1,9 @@
 #include <SDL/SDL.h>
-class AiOponents{
-public:
-int x,y;
-double velocity,direction;
-AiOponents();
-void update();
+#include "aiopponents.hpp"
 
-};
+using namespace std;
+
+AiOponents::AiOponents(){
+}
+
 
