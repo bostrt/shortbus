@@ -17,7 +17,7 @@ int main ( int argc, char** argv )
     // SDL_Event event;
     SDL_Surface* horiz=NULL;
     SDL_Surface* vert=NULL;
-    Player player = Player();
+    Player *player = new Player();
     Wall wallv("vert.bmp");
     SDL_Event event;
    
@@ -31,19 +31,19 @@ int main ( int argc, char** argv )
     wallv.draw(740,500,32,64);
 
     bool done=false;
-    while(!done)
-        {
-            while(SDL_PollEvent(&event))
+    while(!done){
+        // Get user input.
+        while(SDL_PollEvent(&event)){
+            player->handleEvent(&event);
+            if(event.type==SDL_QUIT)
                 {
-                    player.handleEvent(&event);
-                    if(event.type==SDL_QUIT)
-                        {
-                            done=true;
-                        }
-
+                    done=true;
                 }
-            SDL_Flip(screen);
+
         }
+        SDL_Flip(screen);
+
+    }
 
     return 0;
 }

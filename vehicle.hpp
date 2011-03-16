@@ -17,6 +17,8 @@ public:
     void turnLeft();
     double getVelocity();
     double getDirection();
+    void setVelocity(double v);
+    void setDirection(double d);
     virtual void update();
 };
 

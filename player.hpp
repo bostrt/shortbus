@@ -8,6 +8,7 @@ class Player {
 public:
     Player();
     void handleEvent(SDL_Event *event);
+    Vehicle *getVehicle();
 private:
     Vehicle *vehicle;
 };

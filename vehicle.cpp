@@ -50,10 +50,21 @@ void Vehicle::update()
     y+=dy;
 }
 
+/**
+ * Getters and Setters
+ */
 double Vehicle::getVelocity(){
     return velocity;
 }
 
 double Vehicle::getDirection(){
     return direction;
+}
+
+void Vehicle::setVelocity(double v){
+    velocity = v;
+}
+
+void Vehicle::setDirection(double d){
+    direction = d;
 }
