@@ -16,6 +16,7 @@ Model::Model(double x1, double y1, string filename)
     // TODO: Load and set SDL_Surface
     x = x1;
     y = y1;
+//bounding box below since we will have a rotated sprite it would probably be best to do per pixel collisions
 //   boundingbox.x=x;
  //  boundingbox.y=y;
  //  boundingbox.w=image->w;
