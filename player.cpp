@@ -15,7 +15,7 @@
  void Player::handleEvent(SDL_Event *event)
  {   //trying key state so we can have multiple inputs
      Uint8* keys= SDL_GetKeyState(NULL);
- 
+     
      // Check direction.
      if(event->type==SDL_KEYDOWN){
          switch(event->key.keysym.sym)

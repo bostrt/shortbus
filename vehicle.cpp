@@ -16,13 +16,13 @@ Vehicle::Vehicle(double x1, double y1, string filename):Model(x1, y1, filename)
 // Add to velocity
 void Vehicle::accelerate()
 {
-    velocity ++;
+    velocity --;
 }
 
 // Subtract from velocity
 void Vehicle::deccelerate()
 {
-    velocity --;
+    velocity ++;
 }
 
 // Add to direction
@@ -30,7 +30,7 @@ void Vehicle::turnRight()
 {
     if(direction > 360)
         direction = 0;
-    direction ++;
+    direction --;
 }
 
 // Subtract from direction
@@ -38,7 +38,7 @@ void Vehicle::turnLeft()
 {
     if(direction < 0)
         direction = 360;
-    direction --;
+    direction ++;
 }
 
 // Update the vehicle's X and Y position
