@@ -46,9 +46,9 @@ void Model::draw(SDL_Surface *screen,int rotation)
  
    SDL_Rect modelpos;
  //SDL_Surface * rotozoomSurface (SDL_Surface *src, double angle, double zoom, int smooth) 
-   image= rotozoomSurface(image,(double)rotation,1,0); 
-   modelpos.x=x;
-   modelpos.y=y;
+   image= rotozoomSurface(image,rotation,1,0); 
+     modelpos.x=x;
+     modelpos.y=y;
   // boundingbox.x=x;
   // boundingbox.y=y;   
 
