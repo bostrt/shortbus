@@ -13,6 +13,8 @@ Model::Model(double x1, double y1, string filename)
     cfilename = new char[filename.length() + 1];
     strcpy(cfilename, filename.c_str());
     image=SDL_LoadBMP(cfilename);
+    Uint32 colorkey = SDL_MapRGB( image->format, 0xFF, 0xFF, 0xFF );
+    SDL_SetColorKey(image, SDL_SRCCOLORKEY, colorkey );
     
     // TODO: Load and set SDL_Surface
     x = x1;

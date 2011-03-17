@@ -1,5 +1,5 @@
 CXX=g++
-CXXFLAGS=-g -lSDL -I/usr/include/X11 -lSDL_gfx
+CXXFLAGS=-g -lSDL -I/usr/include/X11 -lSDL_gfx -lSDL_image
 PROJECT=shortbus
 
 all: main.o wall.o aiopponents.o bus.o vehicle.o player.o model.o
