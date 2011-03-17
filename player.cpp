@@ -43,7 +43,7 @@
 // Draw the player's vehicle on the screen
 void Player::drawVehicle(SDL_Surface *screen)
 {
-    vehicle->draw(screen);
+    vehicle->draw(screen,vehicle->direction);
     vehicle->update();
 }
 

@@ -8,8 +8,9 @@ using namespace std;
 
 class Vehicle: public Model{
 protected:
-    double velocity, direction;
+    double velocity;
 public:
+    double direction;
     Vehicle(double x1, double y1, string filename);
     void accelerate();
     void deccelerate();

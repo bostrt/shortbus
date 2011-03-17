@@ -3,6 +3,7 @@
 #include <string>
 #include <iostream>
 #include "model.hpp"
+#include <SDL/SDL_rotozoom.h>
 using namespace std;
 
 // Constructor
@@ -38,13 +39,14 @@ void Model::setX(double x1){
 void Model::setY(double y1){
     y = y1;
 }
-void Model::draw(SDL_Surface *screen)
+void Model::draw(SDL_Surface *screen,int rotation)
 {
     //here weshould call some SDL function for drawing to 
     // the screen. Use x and y. 
  
    SDL_Rect modelpos;
-   
+ //SDL_Surface * rotozoomSurface (SDL_Surface *src, double angle, double zoom, int smooth) 
+   image= rotozoomSurface(image,(double)rotation,1,0); 
    modelpos.x=x;
    modelpos.y=y;
   // boundingbox.x=x;

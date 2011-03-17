@@ -12,6 +12,7 @@
 
 #include <SDL/SDL.h>
 #include <string>
+//#include "SDL_rotozoom.h"
 using namespace std;
 class Model {
 protected:
@@ -21,7 +22,7 @@ protected:
 public:
     
     Model(double x, double y, string filename);
-    void draw(SDL_Surface *screen);
+    void draw(SDL_Surface *screen,int rotation);
     void setX(double x1);
     void setY(double y1);
     double getX();

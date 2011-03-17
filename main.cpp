@@ -39,9 +39,11 @@ int main ( int argc, char** argv )
             player->handleEvent(&event);
             if(event.type==SDL_QUIT){
                 done=true;
+ 		
             }
         }
         // AI
+        
         // move enemies
         // collisions
         // draw graphics
