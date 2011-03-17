@@ -11,6 +11,8 @@ using namespace std;
  */
 Vehicle::Vehicle(double x1, double y1, string filename):Model(x1, y1, filename)
 {
+velocity=1;
+direction=0;
 }
 
 // Add to velocity
@@ -47,8 +49,8 @@ void Vehicle::turnLeft()
 // Update the vehicle's X and Y position
 void Vehicle::update()
 {
-    double dx = velocity* sin(direction);
-    double dy = velocity* cos(direction);
+    double dx = velocity* sin(direction*3.14/180);
+    double dy = velocity* cos(direction*3.14/180);
     x+=dx;
     y+=dy;
 }

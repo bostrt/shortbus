@@ -5,11 +5,11 @@
  #include "bus.hpp"
 
  using namespace std;
-
+extern SDL_Surface* screen;
  Player::Player()
  {
      pointtotal=0;
-     vehicle = new Bus(0, 0);
+     vehicle = new Bus(200,200);
  }
 
  void Player::handleEvent(SDL_Event *event)
