@@ -16,28 +16,20 @@
  {   //trying key state so we can have multiple inputs
      Uint8* keys= SDL_GetKeyState(NULL);
      
-     // Check direction.
-     if(event->type==SDL_KEYDOWN){
-         switch(event->key.keysym.sym)
-             {
-             case SDLK_UP:
-                 vehicle->accelerate();
-                 break;
-             case SDLK_DOWN:
-                 vehicle->deccelerate();
-                 break;
-             case SDLK_LEFT:
-                 vehicle->turnLeft();
-                 break;
-             case SDLK_RIGHT:
-                 vehicle->turnRight();
-                 break;
-             }
+     if(event->type == SDL_KEYDOWN){
+         if(keys[SDLK_UP])
+             vehicle->accelerate();
+         else if(keys[SDLK_DOWN])
+             vehicle->deccelerate();
+         if(keys[SDLK_LEFT])
+             vehicle->turnLeft();
+         else if(keys[SDLK_RIGHT])
+             vehicle->turnRight();
      }else{
-         // Nothing is being pressed. Set velocity to zero.
          vehicle->setVelocity(0);
      }
-
+     
+     
  }
 
 // Draw the player's vehicle on the screen

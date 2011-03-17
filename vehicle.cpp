@@ -24,7 +24,7 @@ if(velocity<=10)
 // Subtract from velocity
 void Vehicle::deccelerate()
 {
-   if(velocity>=)
+   if(velocity<=5)
     velocity ++;
 }
 
@@ -47,8 +47,8 @@ void Vehicle::turnLeft()
 // Update the vehicle's X and Y position
 void Vehicle::update()
 {
-    double dx = velocity* cos(direction);
-    double dy = velocity* sin(direction);
+    double dx = velocity* sin(direction);
+    double dy = velocity* cos(direction);
     x+=dx;
     y+=dy;
 }
