@@ -32,6 +32,8 @@ void Model::setX(double x1){
 void Model::setY(double y1){
     y = y1;
 }
+SDL_Surface* Model::getSurface(){
+return image;}
 void Model::draw(SDL_Surface *screen,int rotation)
 {
     //here weshould call some SDL function for drawing to 

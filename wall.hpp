@@ -9,7 +9,7 @@ public:
     SDL_Rect boundingbox;
     Wall(int xPos,int yPos,std::string filename);
 //    void draw(int x, int y, int width, int height);
-   virtual void update();
+   virtual void update(Model* world[1]);
 private:
     SDL_Surface *wall;
 };

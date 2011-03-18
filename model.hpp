@@ -25,9 +25,10 @@ public:
     void draw(SDL_Surface *screen,int rotation);
     void setX(double x1);
     void setY(double y1);
+    SDL_Surface* getSurface();
     double getX();
     double getY();
-    virtual void update() = 0;
+    virtual void update(Model* world[1]) = 0;
 };
 
 #endif

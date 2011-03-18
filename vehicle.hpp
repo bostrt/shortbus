@@ -20,7 +20,8 @@ public:
     double getDirection();
     void setVelocity(double v);
     void setDirection(double d);
-    virtual void update();
+    virtual void update(Model* world[1]);
+    bool checkCollisions(Model* world[1]);
 };
 
 #endif

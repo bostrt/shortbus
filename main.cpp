@@ -16,9 +16,11 @@ int main ( int argc, char** argv )
 {
     // SDL_Event event;
     // SDL_Surface* bus=SDL_LoadBMP("bus.bmp");
+    Model* building[1];
     SDL_Surface* vert=NULL;
     Player *player = new Player();
     Wall *wallv=new Wall(300,300,"images/building_01.png");
+    building[0]=wallv;
     SDL_Event event;
     SDL_Surface* bg = SDL_LoadBMP("bg.bmp");  
     SDL_Init(SDL_INIT_EVERYTHING);
@@ -48,6 +50,7 @@ int main ( int argc, char** argv )
         
         // move enemies
         // collisions
+        player->getVehicle()->update(building);
         // draw graphics
         //LEAVE THIS NEXT LINE HERE
         SDL_BlitSurface(bg,NULL,screen,NULL);

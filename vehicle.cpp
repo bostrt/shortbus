@@ -2,7 +2,7 @@
 #include "vehicle.hpp"
 #include "model.hpp"
 #include "math.h"
-
+#include "SDL_collide.h"
 using namespace std;
 
 /**
@@ -51,12 +51,15 @@ void Vehicle::turnLeft()
 }
 
 // Update the vehicle's X and Y position
-void Vehicle::update()
+void Vehicle::update(Model* world[1])
 {
+   if(checkCollisions(world)){x=x;y=y;
+    }
+   else{
     double dx = (-velocity)* sin(direction*3.14/180);
     double dy = (-velocity)* cos(direction*3.14/180);
     x+=dx;
-    y+=dy;
+    y+=dy;}
 }
 
 /**
@@ -77,3 +80,18 @@ void Vehicle::setVelocity(double v){
 void Vehicle::setDirection(double d){
     direction = d;
 }
+bool Vehicle::checkCollisions(Model* world[1]){
+int length=sizeof(world)/sizeof(Model);
+for(int i=0;i<length;i++){
+    if(SDL_CollidePixel(image,x,y,world[i]->getSurface(),world[i]->getX(),world[i]->getY(),4)!=0){
+      return true;}
+}
+return false;
+
+
+
+}
+
+
+
+
