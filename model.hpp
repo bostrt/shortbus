@@ -12,15 +12,14 @@
 
 #include <SDL/SDL.h>
 #include <string>
-//#include "SDL_rotozoom.h"
+#include <vector>
+
 using namespace std;
 class Model {
 protected:
     double x, y;
-    SDL_Rect boundingbox;
     SDL_Surface *image;
 public:
-    
     Model(double x, double y, string filename);
     void draw(SDL_Surface *screen,int rotation);
     void setX(double x1);
@@ -28,7 +27,7 @@ public:
     SDL_Surface* getSurface();
     double getX();
     double getY();
-    virtual void update(Model* world[1]) = 0;
+    virtual void update(std::vector<Model *> world) = 0;
 };
 
 #endif

@@ -9,7 +9,7 @@ extern SDL_Surface* screen;
  Player::Player()
  {
      pointtotal=0;
-     vehicle = new Bus(200,200);
+     vehicle = new Bus(400,200);
  }
 
  void Player::handleEvent(SDL_Event *event)
