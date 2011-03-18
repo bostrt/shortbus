@@ -37,12 +37,11 @@ int main ( int argc, char** argv )
     while(!done){
         // Get user input.
         while(SDL_PollEvent(&event)){
-            SDL_PumpEvents();
             player->handleEvent(&event);
             if(event.type==SDL_QUIT){
                 done=true;
- 		
             }
+            //SDL_PumpEvents();
         }
         // AI
         

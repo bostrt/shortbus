@@ -17,16 +17,19 @@ extern SDL_Surface* screen;
      Uint8* keys= SDL_GetKeyState(NULL);
 
      // Handle keyboard event
-     if(keys[SDLK_UP])
-         vehicle->accelerate();
-     else if(keys[SDLK_DOWN])
-         vehicle->deccelerate();
-     if(keys[SDLK_LEFT])
-         vehicle->turnLeft();
-     else if(keys[SDLK_RIGHT])
-         vehicle->turnRight();
-     
-     
+     if(keys[SDLK_UP]){
+         vehicle->accelerate(true);
+     }
+     else{
+         vehicle->accelerate(false);
+     }
+
+     if(vehicle->getVelocity() != 0){
+         if(keys[SDLK_LEFT])
+             vehicle->turnLeft();
+         else if(keys[SDLK_RIGHT])
+             vehicle->turnRight();
+     }
  }
 
 // Draw the player's vehicle on the screen
