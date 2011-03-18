@@ -20,9 +20,11 @@ protected:
     double x, y;
     SDL_Surface *image;
 public:
+    SDL_Rect clip;
     void setSurface(SDL_Surface* surface);
     Model(double x, double y, string filename);
     void draw(SDL_Surface *screen,int rotation);
+    void draw(SDL_Surface *screen);
     void setX(double x1);
     void setY(double y1);
     SDL_Surface* getSurface();

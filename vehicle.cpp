@@ -55,14 +55,12 @@ void Vehicle::turnLeft()
 // Update the vehicle's X and Y position
 void Vehicle::update(vector<Model *> world)
 {
-   if(checkCollisions(world)){
-       //x=x-1;y=y-1;
+    if(!checkWallCollisions(world)){
+        double dx = (-velocity)* sin(direction*3.14/180);
+        double dy = (-velocity)* cos(direction*3.14/180);
+        x+=dx;
+        y+=dy;
     }
-   else{
-    double dx = (-velocity)* sin(direction*3.14/180);
-    double dy = (-velocity)* cos(direction*3.14/180);
-    x+=dx;
-    y+=dy;}
 }
 
 /**
@@ -84,38 +82,40 @@ void Vehicle::setDirection(double d){
     direction = d;
 }
 
-bool Vehicle::checkCollisions(std::vector<Model *> worlds)
+void Vehicle::checkAiCollisions(vector<Model *> ais){}
+
+bool Vehicle::checkWallCollisions(std::vector<Model *> worlds)
 {
     SDL_Surface *other = NULL;
-    double otherX = NULL;
-    double otherY = NULL;
+    double otherX = 0;
+    double otherY = 0;
 
     // Loop over all models in the world...
     for(int i = 0; i < worlds.size(); i++){
         other = worlds[i]->getSurface();
         otherX = worlds[i]->getX();
         otherY = worlds[i]->getY();
+        SDL_SetClipRect(image, &clip);
 
-        if(SDL_CollidePixel(other, otherX, otherX, image, x, y, 4) != 0){
-            cout << otherX << "\n";
-            cout << otherY << "\n";
+        if(SDL_CollidePixel(other, otherX, otherY, image, x, y, 4) != 0){
+            cout <<  otherX << "\n";
+            cout <<  otherY << "\n\n";
             // If world is left of player then repell player to right
-            if(otherX+other->w < x){
+            if(otherX+other->w < (x+10)){
                 x ++;
-            }else if(otherX > x){
+            }else if(otherX > x+clip.w){
                 // repell left
                 x --;
             }
             // If world is below player then repell player down
-            if(otherY+other->h < y){
+            if(otherY+other->h < (y+10)){
                 y ++;
-            }else if(otherY > y){
+            }else if(otherY > y+clip.h){
                 // repell up
                 y --;
             }
             return true;
         }
-        cout << "-------------------------\n\n";
     }
     return false;
 }

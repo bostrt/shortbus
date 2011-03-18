@@ -18,8 +18,8 @@ int main ( int argc, char** argv )
     SDL_Surface* bg = SDL_LoadBMP("bg.bmp");  
     SDL_Surface* vert=NULL;
     Player *player = new Player();
-    Wall *wallv=new Wall(300,300,"images/building_01.png");
-    Wall *wallx=new Wall(100,150,"images/building_02.png");
+    Wall *wallv=new Wall(400,450,"images/building_01.png");
+    Wall *wallx=new Wall(100,150,"images/building_01.png");
     Wall *wally=new Wall(400,500,"images/building_03.png");
     AiOpponent *granny = new AiOpponent(700,65,"images/granny64.png",900);
     vector<Model *> world;
@@ -58,20 +58,20 @@ int main ( int argc, char** argv )
         // collisions
         player->getVehicle()->update(world);
        
-         // draw graphics
+         // drawb graphics
         //LEAVE THIS NEXT LINE HERE
         //granny->draw(screen,90);
         SDL_BlitSurface(bg,NULL,screen,NULL);
-        wallv->draw(screen,0);
-        wallx->draw(screen,0);
-        wally->draw(screen,0);
+        wallv->draw(screen);
+        wallx->draw(screen);
+        wally->draw(screen);
         granny->update(ai);
         granny->draw(screen,90);
        // granny2->draw(screen,90);
         player->drawVehicle(screen);
         SDL_Flip(screen);
         // play sounds
-        sleep(.2);
+        sleep(.4);
     }
 
     return 0;

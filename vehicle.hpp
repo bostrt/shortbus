@@ -21,8 +21,9 @@ public:
     double getDirection();
     void setVelocity(double v);
     void setDirection(double d);
-    virtual void update(std::vector<Model *> world);
-    bool checkCollisions(std::vector<Model *> world);
+    virtual void update(vector<Model *> world);
+    void checkAiCollisions(vector<Model *> ais);
+    bool checkWallCollisions(vector<Model *> world);
 };
 
 #endif
