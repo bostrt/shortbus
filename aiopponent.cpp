@@ -6,6 +6,7 @@
 #include <SDL/SDL_image.h>
 #include <iostream>
 #include "SDL_collide.h"
+#include <SDL/SDL_rotozoom.h>
 using namespace std;
 
 AiOpponent::AiOpponent(int x1,int y1, string filename, int pts):Model(x1,y1,filename){
@@ -51,7 +52,8 @@ void AiOpponent::die(Model* model){
     //SDL_Rect dest;
     //dest.x=image.x;
     //dest.y=image.y;
-    model->setSurface(tempimage);
+   SDL_Surface* temp2=rotozoomSurface(tempimage,points,1,0);
+    model->setSurface(temp2);
     //SDL_BlitSurface(image,NULL,screen,&dest);
 }
 int AiOpponent::getRotation(){}

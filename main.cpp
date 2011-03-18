@@ -22,7 +22,8 @@ int main ( int argc, char** argv )
     Wall *wallx=new Wall(100,150,"images/building_01.png");
     Wall *wally=new Wall(400,500,"images/building_03.png");
     AiOpponent *granny = new AiOpponent(700,65,"images/granny64.png",900);
-    AiOpponent *granny2= new AiOpponent(200,300,"images/granny64.png",900);
+    AiOpponent *granny2= new AiOpponent(200,300,"images/granny64.png",70);
+    AiOpponent *granny3= new AiOpponent(700,500,"images/granny64.png",70);
     vector<Model *> world;
     vector<Model *>::iterator it;
     vector<Model *> ai;
@@ -31,13 +32,14 @@ int main ( int argc, char** argv )
     its=ai.begin();
     its=ai.insert(its,granny);
     its=ai.insert(its,granny2);
+    its=ai.insert(its,granny3);
     it = world.insert(it, wallv);
     it = world.insert(it, wallx);
     it = world.insert(it, wally);
 //    it=world.insert(it,granny);
     SDL_Init(SDL_INIT_EVERYTHING);
     SDL_EnableKeyRepeat(SDL_DEFAULT_REPEAT_DELAY, SDL_DEFAULT_REPEAT_INTERVAL);
-    screen=SDL_SetVideoMode(800,500,32,SDL_HWSURFACE);
+    screen=SDL_SetVideoMode(1200,1024,32,SDL_HWSURFACE);
     SDL_WM_SetCaption("SHOЯTBUƧ","SHOЯTBUƧ");
 
     bool done=false;
@@ -69,6 +71,7 @@ int main ( int argc, char** argv )
         granny->update(ai);
         granny->draw(screen,90);
         granny2->draw(screen,90);
+        granny3->draw(screen,90);
         player->drawVehicle(screen);
         SDL_Flip(screen);
         // play sounds

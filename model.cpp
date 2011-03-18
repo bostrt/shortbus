@@ -47,8 +47,13 @@ void Model::draw(SDL_Surface *screen,int rotation)
     clip.x = x;
     clip.y = y;
     clip.w = temprotate->w;
-    clip.h = temprotate->h; 
-    SDL_BlitSurface(temprotate, NULL, screen, &clip);
+    clip.h = temprotate->h;
+//    SDL_Rect dest;
+//    dest.x=x-50; 
+//    dest.y=y;
+//    dest.w=temprotate->w+50;
+//    dest.h=temprotate->h;
+    SDL_BlitSurface(temprotate,NULL, screen, &clip);
 }
 
 void Model::draw(SDL_Surface *screen)

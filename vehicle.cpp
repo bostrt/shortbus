@@ -115,11 +115,11 @@ bool Vehicle::checkWallCollisions(std::vector<Model *> worlds)
         SDL_SetClipRect(image, &clip);
 
         if(SDL_CollidePixel(other, otherX, otherY, image, x, y, 4) != 0){
-            cout <<  otherX << "\n";
-            cout <<  otherY << "\n\n";
-            cout <<  x << "\n";
-            cout <<  y << "\n\n";
-            // If world is left of player then repell player to right
+       //     cout <<  otherX << "\n";
+       //     cout <<  otherY << "\n\n";
+       //     cout <<  x << "\n";
+       //     cout <<  y << "\n\n";
+       // If world is left of player then repell player to right
             if(otherX+other->w < (x+10)){
                 x ++;
             }else if(otherX > x+clip.w){
