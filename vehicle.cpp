@@ -25,7 +25,7 @@ void Vehicle::accelerate()
 // Subtract from velocity
 void Vehicle::deccelerate()
 {
-    if(velocity<=5)
+   if(velocity<=5)
         velocity ++;
 }
 

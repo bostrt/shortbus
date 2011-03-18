@@ -10,23 +10,11 @@ using namespace std;
 // Constructor
 Model::Model(double x1, double y1, string filename)
 {
-      char *cfilename;
-      cfilename = new char[filename.length() + 1];
-      strcpy(cfilename, filename.c_str());
-      image=SDL_LoadBMP(cfilename);
-   // image = IMG_Load(filename.c_str()); // We need to convert the string to a C-type string
-   //   image = SDL_DisplayFormat(image);
-      Uint32 colorkey = SDL_MapRGB( image->format, 0xFF, 0xFF, 0xFF );
-      SDL_SetColorKey(image, SDL_SRCCOLORKEY, colorkey );
-    
-    // TODO: Load and set SDL_Surface
-    x = x1;
-    y = y1;
-//bounding box below since we will have a rotated sprite it would probably be best to do per pixel collisions
-//   boundingbox.x=x;
- //  boundingbox.y=y;
- //  boundingbox.w=image->w;
- //  boundingbox.h=image->h;
+      SDL_Surface *tempimage=NULL;
+      image = IMG_Load(filename.c_str()); // We need to convert the string to a C-type string
+//      image = SDL_DisplayFormat(tempimage);
+      x = x1;
+      y = y1;
 }
 
 double Model::getX(){
@@ -56,9 +44,6 @@ void Model::draw(SDL_Surface *screen,int rotation)
    modelpos.y=y;
    modelpos.w=image->w;
    modelpos.h=image->h; 
-  // boundingbox.x=x;
-  // boundingbox.y=y;   
-
    SDL_BlitSurface(temprotate,NULL,screen,&modelpos);
   
 }
