@@ -26,8 +26,10 @@ if(velocity<=10)
 // Subtract from velocity
 void Vehicle::deccelerate()
 {
-   if(velocity<=5)
-    velocity ++;
+   if(velocity>0){
+      while(velocity>0)
+         velocity--;}
+    else{velocity++;}
 }
 
 // Add to direction
