@@ -12,7 +12,7 @@ protected:
     double velocity;
 public:
     double direction;
-    Vehicle(double x1, double y1, string filename);
+    Vehicle(int x1,int y1, string filename);
     void accelerate(bool go);
     void reverse();
     void turnRight();
@@ -21,8 +21,9 @@ public:
     double getDirection();
     void setVelocity(double v);
     void setDirection(double d);
-    virtual void update(std::vector<Model *> world);
-    bool checkCollisions(std::vector<Model *> world);
+    virtual void update(vector<Model *> world);
+    void checkAiCollisions(vector<Model *> ais);
+    bool checkWallCollisions(vector<Model *> world);
 };
 
 #endif

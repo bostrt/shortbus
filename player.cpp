@@ -38,7 +38,6 @@ extern SDL_Surface* screen;
 void Player::drawVehicle(SDL_Surface *screen)
 {
     vehicle->draw(screen,vehicle->direction);
- //   vehicle->update();
 }
 
 Vehicle *Player::getVehicle()

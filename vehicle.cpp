@@ -5,13 +5,14 @@
 #include "model.hpp"
 #include "math.h"
 #include "SDL_collide.h"
+#include "aiopponent.hpp"
 using namespace std;
 
 /**
  * Constructor
  * Passed initial position and BMP.
  */
-Vehicle::Vehicle(double x1, double y1, string filename):Model(x1, y1, filename)
+Vehicle::Vehicle(int x1, int y1, string filename):Model(x1, y1, filename)
 {
     velocity=1;
     direction=0;
@@ -20,10 +21,10 @@ Vehicle::Vehicle(double x1, double y1, string filename):Model(x1, y1, filename)
 void Vehicle::accelerate(bool go)
 {
     if(go){
-        if(velocity<=2)
-            velocity ++;
+        if(velocity<=10)
+            velocity +=2;
     }else{
-        if(velocity>=2)
+        if(velocity>=10)
             velocity --;
         else
             velocity = 0;
@@ -55,14 +56,12 @@ void Vehicle::turnLeft()
 // Update the vehicle's X and Y position
 void Vehicle::update(vector<Model *> world)
 {
-   if(checkCollisions(world)){
-       //x=x-1;y=y-1;
+    if(!checkWallCollisions(world)){
+        int dx = (-velocity)* sin(direction*3.14/180);
+        int dy = (-velocity)* cos(direction*3.14/180);
+        x+=dx;
+        y+=dy;
     }
-   else{
-    double dx = (-velocity)* sin(direction*3.14/180);
-    double dy = (-velocity)* cos(direction*3.14/180);
-    x+=dx;
-    y+=dy;}
 }
 
 /**
@@ -83,33 +82,54 @@ void Vehicle::setVelocity(double v){
 void Vehicle::setDirection(double d){
     direction = d;
 }
-bool Vehicle::checkCollisions(std::vector<Model *> worlds)
+
+void Vehicle::checkAiCollisions(vector<Model *> ais)
+{
+	 SDL_Surface *other = NULL;
+         double otherX = 0;
+         double otherY = 0;
+	
+       for(int i=0;i<ais.size();i++){
+          other = ais[i]->getSurface();
+          otherX = ais[i]->getX();
+          otherY = ais[i]->getY();
+          SDL_SetClipRect(image, &clip);
+
+        if(SDL_CollidePixel(other, otherX, otherY, image, x, y, 4) != 0){
+             ((AiOpponent*) ais[i])->die(ais[i]);
+	}
+}	
+}
+
+bool Vehicle::checkWallCollisions(std::vector<Model *> worlds)
 {
     SDL_Surface *other = NULL;
-    SDL_Rect rect;
-    SDL_GetClipRect(image, &rect);
-
-    double otherX = NULL;
-    double otherY = NULL;
+    double otherX = 0;
+    double otherY = 0;
 
     // Loop over all models in the world...
     for(int i = 0; i < worlds.size(); i++){
         other = worlds[i]->getSurface();
         otherX = worlds[i]->getX();
         otherY = worlds[i]->getY();
-        if(SDL_CollidePixel(other, otherX, otherX, image, x, y, 4) != 0){
+        SDL_SetClipRect(image, &clip);
 
-            // If world is left of player then repell player to right
-            if(otherX < x){
+        if(SDL_CollidePixel(other, otherX, otherY, image, x, y, 4) != 0){
+       //     cout <<  otherX << "\n";
+       //     cout <<  otherY << "\n\n";
+       //     cout <<  x << "\n";
+       //     cout <<  y << "\n\n";
+       // If world is left of player then repell player to right
+            if(otherX+other->w < (x+10)){
                 x ++;
-            }else{
+            }else if(otherX > x+clip.w){
                 // repell left
                 x --;
             }
             // If world is below player then repell player down
-            if(otherY < y){
+            if(otherY+other->h < (y+10)){
                 y ++;
-            }else{
+            }else if(otherY > y+clip.h){
                 // repell up
                 y --;
             }

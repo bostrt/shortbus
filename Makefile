@@ -2,8 +2,8 @@ CXX=g++
 CXXFLAGS=-g -lSDL -I/usr/include/X11 -lSDL_gfx -lSDL_image
 PROJECT=shortbus
 
-all: main.o wall.o aiopponents.o bus.o vehicle.o player.o model.o SDL_collide.o
-	$(CXX) $(CXXFLAGS) main.o wall.o aiopponents.o bus.o vehicle.o player.o model.o SDL_collide.o -o $(PROJECT)
+all: main.o wall.o aiopponent.o bus.o vehicle.o player.o model.o SDL_collide.o
+	$(CXX) $(CXXFLAGS) main.o wall.o aiopponent.o bus.o vehicle.o player.o model.o SDL_collide.o -o $(PROJECT)
 
 main.o: main.cpp
 	$(CXX) $(CXXFLAGS) -c main.cpp -o main.o
@@ -11,8 +11,8 @@ main.o: main.cpp
 wall.o: wall.cpp 
 	$(CXX) $(CXXFLAGS) -c wall.cpp -o wall.o
 
-aiopponents.o: aiopponents.cpp
-	$(CXX) $(CXXFLAGS) -c aiopponents.cpp -o aiopponents.o
+aiopponent.o: aiopponent.cpp
+	$(CXX) $(CXXFLAGS) -c aiopponent.cpp -o aiopponent.o
 
 bus.o: bus.cpp bus.hpp
 	$(CXX) $(CXXFLAGS) -c bus.cpp -o bus.o
