@@ -15,19 +15,16 @@ extern SDL_Surface* screen;
  void Player::handleEvent(SDL_Event *event)
  {   //trying key state so we can have multiple inputs
      Uint8* keys= SDL_GetKeyState(NULL);
-     
-     if(event->type == SDL_KEYDOWN){
-         if(keys[SDLK_UP])
-             vehicle->accelerate();
-         else if(keys[SDLK_DOWN])
-             vehicle->deccelerate();
-         if(keys[SDLK_LEFT])
-             vehicle->turnLeft();
-         else if(keys[SDLK_RIGHT])
-             vehicle->turnRight();
-     }else{
-         vehicle->setVelocity(0);
-     }
+
+     // Handle keyboard event
+     if(keys[SDLK_UP])
+         vehicle->accelerate();
+     else if(keys[SDLK_DOWN])
+         vehicle->deccelerate();
+     if(keys[SDLK_LEFT])
+         vehicle->turnLeft();
+     else if(keys[SDLK_RIGHT])
+         vehicle->turnRight();
      
      
  }

@@ -11,25 +11,22 @@ using namespace std;
  */
 Vehicle::Vehicle(double x1, double y1, string filename):Model(x1, y1, filename)
 {
-velocity=1;
-direction=0;
+    velocity=1;
+    direction=0;
 }
 
 // Add to velocity
 void Vehicle::accelerate()
 {
-if(velocity<=10)
-    velocity --;
-
+    if(velocity<=10)
+        velocity --;
 }
 
 // Subtract from velocity
 void Vehicle::deccelerate()
 {
-   if(velocity>0){
-      while(velocity>0)
-         velocity--;}
-    else{velocity++;}
+   if(velocity<=5)
+        velocity ++;
 }
 
 // Add to direction
@@ -37,7 +34,7 @@ void Vehicle::turnRight()
 {
     if(direction < 0)
         direction = 360;
-    direction --;
+    direction -=2;
 }
 
 // Subtract from direction
@@ -45,7 +42,7 @@ void Vehicle::turnLeft()
 {
     if(direction > 360)
         direction = 0;
-    direction ++;
+    direction +=2;
 }
 
 // Update the vehicle's X and Y position
