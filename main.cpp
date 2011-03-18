@@ -20,13 +20,15 @@ int main ( int argc, char** argv )
     Player *player = new Player();
     Wall *wallv=new Wall(300,300,"images/building_01.png");
     Wall *wallx=new Wall(100,150,"images/building_02.png");
-    Wall *wally=new Wall(400,0,"images/building_03.png");
+    Wall *wally=new Wall(400,500,"images/building_03.png");
     AiOponents *granny = new AiOponents(700,65,"images/granny64.png",900);
     vector<Model *> world;
     vector<Model *>::iterator it;
-
+    vector<Model *> ai;
+    vector<Model *>::iterator its; 
     it = world.begin();
-    it=world.insert(it,granny);
+    its=ai.begin();
+    its=ai.insert(its,granny);
 
     it = world.insert(it, wallv);
     it = world.insert(it, wallx);
@@ -34,7 +36,7 @@ int main ( int argc, char** argv )
 //    it=world.insert(it,granny);
     SDL_Init(SDL_INIT_EVERYTHING);
     SDL_EnableKeyRepeat(SDL_DEFAULT_REPEAT_DELAY, SDL_DEFAULT_REPEAT_INTERVAL);
-    screen=SDL_SetVideoMode(800,600,32,SDL_HWSURFACE);
+    screen=SDL_SetVideoMode(1024,768,32,SDL_HWSURFACE);
     SDL_WM_SetCaption("SHOЯTBUƧ","SHOЯTBUƧ");
 
     bool done=false;
@@ -55,13 +57,15 @@ int main ( int argc, char** argv )
         // move enemies
         // collisions
         player->getVehicle()->update(world);
-        // draw graphics
+       
+         // draw graphics
         //LEAVE THIS NEXT LINE HERE
         //granny->draw(screen,90);
         SDL_BlitSurface(bg,NULL,screen,NULL);
         wallv->draw(screen,0);
         wallx->draw(screen,0);
         wally->draw(screen,0);
+        granny->update(ai);
         granny->draw(screen,90);
         player->drawVehicle(screen);
         SDL_Flip(screen);
