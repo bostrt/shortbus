@@ -36,13 +36,15 @@ int main ( int argc, char** argv )
     // See http://en.wikipedia.org/wiki/Game_programming#Game_structure
     while(!done){
         // Get user input.
-        while(SDL_PollEvent(&event)){
+        do{
             player->handleEvent(&event);
             if(event.type==SDL_QUIT){
                 done=true;
             }
             //SDL_PumpEvents();
-        }
+
+        }while(SDL_PollEvent(&event));
+
         // AI
         
         // move enemies
