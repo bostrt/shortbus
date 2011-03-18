@@ -21,10 +21,10 @@ Vehicle::Vehicle(int x1, int y1, string filename):Model(x1, y1, filename)
 void Vehicle::accelerate(bool go)
 {
     if(go){
-        if(velocity<=2)
+        if(velocity<=10)
             velocity +=2;
     }else{
-        if(velocity>=2)
+        if(velocity>=10)
             velocity --;
         else
             velocity = 0;

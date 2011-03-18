@@ -10,11 +10,16 @@ public:
     void setRotation(int rotate);
     bool flip;
     int x,y,points;
+    int dir;
     SDL_Surface* image;
-    double velocity,direction;
+    double velocity;
     AiOpponent(int x,int y,string filename,int pts);
     virtual void update(std::vector<Model *> world);
     void die(Model* model);
     void checkCollisions(std::vector<Model *> worlds);
+    int getDirection();
+    void setDirection(int direction);
+    bool isDead();
+    void setDead(bool deathstatus);
 };
 

@@ -19,8 +19,8 @@ int main ( int argc, char** argv )
     SDL_Surface* vert=NULL;
     Player *player = new Player();
     Wall *wallv=new Wall(400,450,"images/building_01.png");
-    Wall *wallx=new Wall(100,150,"images/building_01.png");
-    Wall *wally=new Wall(400,500,"images/building_03.png");
+    Wall *wallx=new Wall(100,150,"images/building_02.png");
+    Wall *wally=new Wall(20,500,"images/building_03.png");
     AiOpponent *granny = new AiOpponent(700,65,"images/granny64.png",900);
     AiOpponent *granny2= new AiOpponent(200,300,"images/granny64.png",70);
     AiOpponent *granny3= new AiOpponent(700,500,"images/granny64.png",70);
