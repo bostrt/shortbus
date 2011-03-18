@@ -15,5 +15,6 @@ double velocity,direction;
 AiOponents(int x,int y,string filename,int pts);
 virtual void update(std::vector<Model *> world);
 void die(Model* model);
+void checkCollisions();
 };
 

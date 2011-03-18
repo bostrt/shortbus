@@ -16,6 +16,7 @@ AiOponents::AiOponents(int x1,int y1, string filename, int pts):Model(x1,y1,file
 }
 void AiOponents::update(std::vector<Model *> world){
 //insert movement and deathcalls here
+
 if(!dead){
 if(flip){
 for(int i=0;i<world.size();i++){
@@ -26,15 +27,17 @@ world[i]->setX(tempx);
 if(world[i]->getX()<0){flip=false;
 }}}
 else{
-for(int i=0;i<world.size();i++){
-int tempx=world[i]->getX();
-tempx+=10;
-world[i]->setX(tempx);
-if(world[i]->getX()>500){flip=true;
-dead=true;
-die(world[i]);
+	for(int i=0;i<world.size();i++){
+	  int tempx=world[i]->getX();
+	  tempx+=10;
+	  world[i]->setX(tempx);
+	  if(world[i]->getX()>1024){
+	  flip=true;
 }
-}}}}
+}}
+
+checkCollisions();
+}}
 void AiOponents::die(Model* model){
 //sends player added points and removes sprite
 string filename="images/blood64.png";
@@ -47,4 +50,7 @@ model->setSurface(tempimage);
 }
 int AiOponents::getRotation(){}
 void AiOponents::setRotation(int rotation){}
+void AiOponents::checkCollisions()
+{
 
+}
