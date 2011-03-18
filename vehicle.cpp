@@ -97,7 +97,8 @@ bool Vehicle::checkCollisions(std::vector<Model *> worlds)
         otherY = worlds[i]->getY();
 
         if(SDL_CollidePixel(other, otherX, otherX, image, x, y, 4) != 0){
-            
+            cout << otherX << "\n";
+            cout << otherY << "\n";
             // If world is left of player then repell player to right
             if(otherX+other->w < x){
                 x ++;
@@ -114,6 +115,7 @@ bool Vehicle::checkCollisions(std::vector<Model *> worlds)
             }
             return true;
         }
+        cout << "-------------------------\n\n";
     }
     return false;
 }

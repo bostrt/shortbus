@@ -7,7 +7,7 @@
 #include <iostream>
 #include "player.hpp"
 #include "wall.hpp"
-#include "aiopponents.hpp"
+#include "aiopponent.hpp"
 using namespace std;
 
 SDL_Surface* screen;
@@ -21,8 +21,7 @@ int main ( int argc, char** argv )
     Wall *wallv=new Wall(300,300,"images/building_01.png");
     Wall *wallx=new Wall(100,150,"images/building_02.png");
     Wall *wally=new Wall(400,500,"images/building_03.png");
-    AiOponents *granny = new AiOponents(700,65,"images/granny64.png",900);
-//    AiOponents *granny2 = new AiOponents(200,100,"images/granny64.png",900);
+    AiOpponent *granny = new AiOpponent(700,65,"images/granny64.png",900);
     vector<Model *> world;
     vector<Model *>::iterator it;
     vector<Model *> ai;
@@ -37,7 +36,7 @@ int main ( int argc, char** argv )
 //    it=world.insert(it,granny);
     SDL_Init(SDL_INIT_EVERYTHING);
     SDL_EnableKeyRepeat(SDL_DEFAULT_REPEAT_DELAY, SDL_DEFAULT_REPEAT_INTERVAL);
-    screen=SDL_SetVideoMode(1024,768,32,SDL_HWSURFACE);
+    screen=SDL_SetVideoMode(800,500,32,SDL_HWSURFACE);
     SDL_WM_SetCaption("SHOЯTBUƧ","SHOЯTBUƧ");
 
     bool done=false;
