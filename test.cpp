@@ -2,7 +2,7 @@
 #include "bus.hpp"
 #include "vehicle.hpp"
 #include <iostream>
-//Test
+
 SDL_Surface *screen;
 void print(Vehicle *v);
 
