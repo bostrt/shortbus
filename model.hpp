@@ -20,6 +20,7 @@ protected:
     double x, y;
     SDL_Surface *image;
 public:
+    void setSurface(SDL_Surface* surface);
     Model(double x, double y, string filename);
     void draw(SDL_Surface *screen,int rotation);
     void setX(double x1);

@@ -14,6 +14,6 @@ SDL_Surface* image;
 double velocity,direction;
 AiOponents(int x,int y,string filename,int pts);
 virtual void update(std::vector<Model *> world);
-void die();
+void die(Model* model);
 };
 

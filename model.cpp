@@ -33,6 +33,7 @@ void Model::setY(double y1){
 SDL_Surface* Model::getSurface(){
     return image;
 }
+void Model::setSurface(SDL_Surface* surface){image=surface;}
 
 void Model::draw(SDL_Surface *screen,int rotation)
 {

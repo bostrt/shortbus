@@ -32,16 +32,17 @@ tempx+=10;
 world[i]->setX(tempx);
 if(world[i]->getX()>500){flip=true;
 dead=true;
-die();
+die(world[i]);
 }
 }}}}
-void AiOponents::die(){
+void AiOponents::die(Model* model){
 //sends player added points and removes sprite
 string filename="images/blood64.png";
 SDL_Surface* tempimage=IMG_Load(filename.c_str());
 //SDL_Rect dest;
 //dest.x=image.x;
 //dest.y=image.y;
+model->setSurface(tempimage);
 //SDL_BlitSurface(image,NULL,screen,&dest);
 }
 int AiOponents::getRotation(){}
