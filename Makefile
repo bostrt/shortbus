@@ -1,5 +1,4 @@
 CXX=g++
-C=gcc
 CXXFLAGS=-g -lSDL -I/usr/include/X11 -lSDL_gfx -lSDL_image
 PROJECT=shortbus
 
@@ -26,7 +25,8 @@ player.o: player.cpp player.hpp
 
 model.o: model.cpp model.hpp
 	$(CXX) $(CXXFLAGS) -c model.cpp -o model.o
+
 SDL_collide.o: SDL_collide.c SDL_collide.h
-	$(C)   $(CXXFLAGS) -c SDL_collide.c -o SDL_collide.o
+	$(CXX) $(CXXFLAGS) -c SDL_collide.c -o SDL_collide.o
 clean:
 	rm *.o $(PROJECT)
