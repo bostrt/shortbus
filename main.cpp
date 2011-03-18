@@ -26,10 +26,12 @@ int main ( int argc, char** argv )
     vector<Model *>::iterator it;
 
     it = world.begin();
+    it=world.insert(it,granny);
+
     it = world.insert(it, wallv);
     it = world.insert(it, wallx);
     it = world.insert(it, wally);
-
+//    it=world.insert(it,granny);
     SDL_Init(SDL_INIT_EVERYTHING);
     SDL_EnableKeyRepeat(SDL_DEFAULT_REPEAT_DELAY, SDL_DEFAULT_REPEAT_INTERVAL);
     screen=SDL_SetVideoMode(800,600,32,SDL_HWSURFACE);

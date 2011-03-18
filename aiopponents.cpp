@@ -17,6 +17,7 @@ void AiOponents::update(std::vector<Model *> world){
 }
 void AiOponents::die(){
 //sends player added points and removes sprite
+SDL_FreeSurface(image);
 
 }
 
