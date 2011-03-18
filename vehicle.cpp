@@ -15,18 +15,23 @@ Vehicle::Vehicle(double x1, double y1, string filename):Model(x1, y1, filename)
     direction=0;
 }
 
-// Add to velocity
-void Vehicle::accelerate()
+void Vehicle::accelerate(bool go)
 {
-    if(velocity<=10)
-        velocity --;
+    if(go){
+        if(velocity<=2)
+            velocity ++;
+    }else{
+        if(velocity>=2)
+            velocity --;
+        else
+            velocity = 0;
+    }
 }
 
-// Subtract from velocity
-void Vehicle::deccelerate()
+void Vehicle::reverse()
 {
-   if(velocity<=5)
-        velocity ++;
+    if(velocity > -5)
+        velocity--;
 }
 
 // Add to direction
@@ -48,8 +53,8 @@ void Vehicle::turnLeft()
 // Update the vehicle's X and Y position
 void Vehicle::update()
 {
-    double dx = velocity* sin(direction*3.14/180);
-    double dy = velocity* cos(direction*3.14/180);
+    double dx = (-velocity)* sin(direction*3.14/180);
+    double dy = (-velocity)* cos(direction*3.14/180);
     x+=dx;
     y+=dy;
 }

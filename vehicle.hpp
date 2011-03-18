@@ -12,8 +12,8 @@ protected:
 public:
     double direction;
     Vehicle(double x1, double y1, string filename);
-    void accelerate();
-    void deccelerate();
+    void accelerate(bool go);
+    void reverse();
     void turnRight();
     void turnLeft();
     double getVelocity();
