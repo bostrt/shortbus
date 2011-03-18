@@ -18,7 +18,7 @@ int main ( int argc, char** argv )
     // SDL_Surface* bus=SDL_LoadBMP("bus.bmp");
     SDL_Surface* vert=NULL;
     Player *player = new Player();
-    Wall wallv("vert.bmp");
+    Wall *wallv=new Wall(300,300,"images/building_01.png");
     SDL_Event event;
     SDL_Surface* bg = SDL_LoadBMP("bg.bmp");  
     SDL_Init(SDL_INIT_EVERYTHING);
@@ -30,8 +30,7 @@ int main ( int argc, char** argv )
     // SDL_SetColorKey( bus, SDL_SRCCOLORKEY, colorkey );
     //SDL_BlitSurface(bus,NULL,screen,NULL);
     //x,y,width,height
-    wallv.draw(740,500,32,64);
-    
+    //wallv.draw(740,500,32,64);
     bool done=false;
     // See http://en.wikipedia.org/wiki/Game_programming#Game_structure
     while(!done){
@@ -52,6 +51,7 @@ int main ( int argc, char** argv )
         // draw graphics
         //LEAVE THIS NEXT LINE HERE
         SDL_BlitSurface(bg,NULL,screen,NULL);
+        wallv->draw(screen,0);
         player->drawVehicle(screen);
         SDL_Flip(screen);
         // play sounds
