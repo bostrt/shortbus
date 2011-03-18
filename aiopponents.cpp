@@ -2,6 +2,7 @@
 #include "aiopponents.hpp"
 #include <string>
 #include "model.hpp"
+#include <vector>
 using namespace std;
 
 AiOponents::AiOponents(int x1,int y1, string filename, int pts):Model(x1,y1,filename){
@@ -10,7 +11,7 @@ AiOponents::AiOponents(int x1,int y1, string filename, int pts):Model(x1,y1,file
         
 
 }
-void AiOponents::update(){
+void AiOponents::update(std::vector<Model *> world){
 //insert movement and deathcalls here
 
 }
