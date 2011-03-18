@@ -7,7 +7,7 @@
 using namespace std;
 
 // Constructor
-Model::Model(double x1, double y1, string filename)
+Model::Model(int x1, int y1, string filename)
 {
       image = IMG_Load(filename.c_str()); // We need to convert the string to a C-type string
       x = x1;
@@ -15,19 +15,19 @@ Model::Model(double x1, double y1, string filename)
       SDL_GetClipRect(image, &clip);
 }
 
-double Model::getX(){
+int Model::getX(){
     return x;
 }
 
-double Model::getY(){
+int Model::getY(){
     return y;
 }
 
-void Model::setX(double x1){
+void Model::setX(int x1){
     x = x1;
 }
 
-void Model::setY(double y1){
+void Model::setY(int y1){
     y = y1;
 }
 

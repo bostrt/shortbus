@@ -12,7 +12,7 @@ protected:
     double velocity;
 public:
     double direction;
-    Vehicle(double x1, double y1, string filename);
+    Vehicle(int x1,int y1, string filename);
     void accelerate(bool go);
     void reverse();
     void turnRight();

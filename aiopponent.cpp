@@ -10,7 +10,7 @@ using namespace std;
 
 AiOpponent::AiOpponent(int x1,int y1, string filename, int pts):Model(x1,y1,filename){
     flip=true;	
-	points=pts;
+    points=pts;
     dead=false; 
 
 }
@@ -32,19 +32,20 @@ void AiOpponent::update(std::vector<Model *> world){
         else{
             for(int i=0;i<world.size();i++){
                 int tempx=world[i]->getX();
-                tempx+=10;
+                tempx+=2;
                 world[i]->setX(tempx);
                 if(world[i]->getX()>1024){
                     flip=true;
                 }
             }
         }
-        checkCollisions();
+        checkCollisions(world);
     }
 }
 
 void AiOpponent::die(Model* model){
     //sends player added points and removes sprite
+    dead=true;
     string filename="images/blood64.png";
     SDL_Surface* tempimage=IMG_Load(filename.c_str());
     //SDL_Rect dest;
@@ -55,7 +56,7 @@ void AiOpponent::die(Model* model){
 }
 int AiOpponent::getRotation(){}
 void AiOpponent::setRotation(int rotation){}
-void AiOpponent::checkCollisions()
+void AiOpponent::checkCollisions(std::vector<Model *>worlds)
 {
 
 }

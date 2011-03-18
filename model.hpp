@@ -22,14 +22,14 @@ protected:
 public:
     SDL_Rect clip;
     void setSurface(SDL_Surface* surface);
-    Model(double x, double y, string filename);
+    Model(int x, int y, string filename);
     void draw(SDL_Surface *screen,int rotation);
     void draw(SDL_Surface *screen);
-    void setX(double x1);
-    void setY(double y1);
+    void setX(int x1);
+    void setY(int y1);
     SDL_Surface* getSurface();
-    double getX();
-    double getY();
+    int getX();
+    int getY();
     virtual void update(std::vector<Model *> world) = 0;
 };
 

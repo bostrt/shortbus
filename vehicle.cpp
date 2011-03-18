@@ -5,13 +5,14 @@
 #include "model.hpp"
 #include "math.h"
 #include "SDL_collide.h"
+#include "aiopponent.hpp"
 using namespace std;
 
 /**
  * Constructor
  * Passed initial position and BMP.
  */
-Vehicle::Vehicle(double x1, double y1, string filename):Model(x1, y1, filename)
+Vehicle::Vehicle(int x1, int y1, string filename):Model(x1, y1, filename)
 {
     velocity=1;
     direction=0;
@@ -56,8 +57,8 @@ void Vehicle::turnLeft()
 void Vehicle::update(vector<Model *> world)
 {
     if(!checkWallCollisions(world)){
-        double dx = (-velocity)* sin(direction*3.14/180);
-        double dy = (-velocity)* cos(direction*3.14/180);
+        int dx = (-velocity)* sin(direction*3.14/180);
+        int dy = (-velocity)* cos(direction*3.14/180);
         x+=dx;
         y+=dy;
     }
@@ -82,7 +83,23 @@ void Vehicle::setDirection(double d){
     direction = d;
 }
 
-void Vehicle::checkAiCollisions(vector<Model *> ais){}
+void Vehicle::checkAiCollisions(vector<Model *> ais)
+{
+	 SDL_Surface *other = NULL;
+         double otherX = 0;
+         double otherY = 0;
+	
+       for(int i=0;i<ais.size();i++){
+          other = ais[i]->getSurface();
+          otherX = ais[i]->getX();
+          otherY = ais[i]->getY();
+          SDL_SetClipRect(image, &clip);
+
+        if(SDL_CollidePixel(other, otherX, otherY, image, x, y, 4) != 0){
+             ((AiOpponent*) ais[i])->die(ais[i]);
+	}
+}	
+}
 
 bool Vehicle::checkWallCollisions(std::vector<Model *> worlds)
 {
@@ -100,6 +117,8 @@ bool Vehicle::checkWallCollisions(std::vector<Model *> worlds)
         if(SDL_CollidePixel(other, otherX, otherY, image, x, y, 4) != 0){
             cout <<  otherX << "\n";
             cout <<  otherY << "\n\n";
+            cout <<  x << "\n";
+            cout <<  y << "\n\n";
             // If world is left of player then repell player to right
             if(otherX+other->w < (x+10)){
                 x ++;

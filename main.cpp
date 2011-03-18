@@ -22,6 +22,7 @@ int main ( int argc, char** argv )
     Wall *wallx=new Wall(100,150,"images/building_01.png");
     Wall *wally=new Wall(400,500,"images/building_03.png");
     AiOpponent *granny = new AiOpponent(700,65,"images/granny64.png",900);
+    AiOpponent *granny2= new AiOpponent(200,300,"images/granny64.png",900);
     vector<Model *> world;
     vector<Model *>::iterator it;
     vector<Model *> ai;
@@ -29,7 +30,7 @@ int main ( int argc, char** argv )
     it = world.begin();
     its=ai.begin();
     its=ai.insert(its,granny);
-  // its=ai.insert(its,granny2);
+    its=ai.insert(its,granny2);
     it = world.insert(it, wallv);
     it = world.insert(it, wallx);
     it = world.insert(it, wally);
@@ -57,7 +58,7 @@ int main ( int argc, char** argv )
         // move enemies
         // collisions
         player->getVehicle()->update(world);
-       
+        player->getVehicle()->checkAiCollisions(ai);     
          // drawb graphics
         //LEAVE THIS NEXT LINE HERE
         //granny->draw(screen,90);
@@ -67,7 +68,7 @@ int main ( int argc, char** argv )
         wally->draw(screen);
         granny->update(ai);
         granny->draw(screen,90);
-       // granny2->draw(screen,90);
+        granny2->draw(screen,90);
         player->drawVehicle(screen);
         SDL_Flip(screen);
         // play sounds
