@@ -19,6 +19,8 @@ extern SDL_Surface* screen;
      // Handle keyboard event
      if(keys[SDLK_UP]){
          vehicle->accelerate(true);
+     }else if(keys[SDLK_DOWN]){
+         vehicle->reverse();
      }
      else{
          vehicle->accelerate(false);

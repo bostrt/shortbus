@@ -28,9 +28,10 @@ void Vehicle::accelerate(bool go)
     }
 }
 
-// Subtract from velocity
-void Vehicle::deccelerate()
+void Vehicle::reverse()
 {
+    if(velocity > -5)
+        velocity--;
 }
 
 // Add to direction

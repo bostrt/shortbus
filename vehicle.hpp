@@ -13,7 +13,7 @@ public:
     double direction;
     Vehicle(double x1, double y1, string filename);
     void accelerate(bool go);
-    void deccelerate();
+    void reverse();
     void turnRight();
     void turnLeft();
     double getVelocity();
