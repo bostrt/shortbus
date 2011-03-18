@@ -22,7 +22,7 @@ void Vehicle::accelerate(bool go)
 {
     if(go){
         if(velocity<=2)
-            velocity ++;
+            velocity +=2;
     }else{
         if(velocity>=2)
             velocity --;
