@@ -5,6 +5,10 @@
 using namespace std;
 class AiOponents:public Model{
 public:
+bool dead;
+int getRotation();
+void setRotation(int rotate);
+bool flip;
 int x,y,points;
 SDL_Surface* image;
 double velocity,direction;
