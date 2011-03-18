@@ -83,12 +83,10 @@ void Vehicle::setVelocity(double v){
 void Vehicle::setDirection(double d){
     direction = d;
 }
+
 bool Vehicle::checkCollisions(std::vector<Model *> worlds)
 {
     SDL_Surface *other = NULL;
-    SDL_Rect rect;
-    SDL_GetClipRect(image, &rect);
-
     double otherX = NULL;
     double otherY = NULL;
 
@@ -97,19 +95,20 @@ bool Vehicle::checkCollisions(std::vector<Model *> worlds)
         other = worlds[i]->getSurface();
         otherX = worlds[i]->getX();
         otherY = worlds[i]->getY();
-        if(SDL_CollidePixel(other, otherX, otherX, image, x, y, 4) != 0){
 
+        if(SDL_CollidePixel(other, otherX, otherX, image, x, y, 4) != 0){
+            
             // If world is left of player then repell player to right
-            if(otherX < x){
+            if(otherX+other->w < x){
                 x ++;
-            }else{
+            }else if(otherX > x){
                 // repell left
                 x --;
             }
             // If world is below player then repell player down
-            if(otherY < y){
+            if(otherY+other->h < y){
                 y ++;
-            }else{
+            }else if(otherY > y){
                 // repell up
                 y --;
             }
