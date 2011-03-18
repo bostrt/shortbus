@@ -2,6 +2,7 @@
 #define VEHICLE_H
 
 #include <string>
+#include <vector>
 #include "model.hpp"
 
 using namespace std;
@@ -20,8 +21,8 @@ public:
     double getDirection();
     void setVelocity(double v);
     void setDirection(double d);
-    virtual void update(Model* world[1]);
-    bool checkCollisions(Model* world[1]);
+    virtual void update(std::vector<Model *> world);
+    bool checkCollisions(std::vector<Model *> world);
 };
 
 #endif

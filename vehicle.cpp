@@ -1,4 +1,6 @@
 #include <string>
+#include <iostream>
+#include <vector>
 #include "vehicle.hpp"
 #include "model.hpp"
 #include "math.h"
@@ -51,9 +53,10 @@ void Vehicle::turnLeft()
 }
 
 // Update the vehicle's X and Y position
-void Vehicle::update(Model* world[1])
+void Vehicle::update(vector<Model *> world)
 {
-   if(checkCollisions(world)){x=x;y=y;
+   if(checkCollisions(world)){
+       //x=x-1;y=y-1;
     }
    else{
     double dx = (-velocity)* sin(direction*3.14/180);
@@ -80,16 +83,40 @@ void Vehicle::setVelocity(double v){
 void Vehicle::setDirection(double d){
     direction = d;
 }
-bool Vehicle::checkCollisions(Model* world[1]){
-int length=sizeof(world)/sizeof(Model);
-for(int i=0;i<length;i++){
-    if(SDL_CollidePixel(image,x,y,world[i]->getSurface(),world[i]->getX(),world[i]->getY(),4)!=0){
-      return true;}
-}
-return false;
+bool Vehicle::checkCollisions(std::vector<Model *> worlds)
+{
+    SDL_Surface *other = NULL;
+    SDL_Rect rect;
+    SDL_GetClipRect(image, &rect);
 
+    double otherX = NULL;
+    double otherY = NULL;
 
+    // Loop over all models in the world...
+    for(int i = 0; i < worlds.size(); i++){
+        other = worlds[i]->getSurface();
+        otherX = worlds[i]->getX();
+        otherY = worlds[i]->getY();
+        if(SDL_CollidePixel(other, otherX, otherX, image, x, y, 4) != 0){
 
+            // If world is left of player then repell player to right
+            if(otherX < x){
+                x ++;
+            }else{
+                // repell left
+                x --;
+            }
+            // If world is below player then repell player down
+            if(otherY < y){
+                y ++;
+            }else{
+                // repell up
+                y --;
+            }
+            return true;
+        }
+    }
+    return false;
 }
 
 

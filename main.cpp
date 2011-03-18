@@ -14,25 +14,27 @@ SDL_Surface* screen;
 
 int main ( int argc, char** argv )
 {
-    // SDL_Event event;
-    // SDL_Surface* bus=SDL_LoadBMP("bus.bmp");
-    Model* building[1];
+    SDL_Event event;
+    SDL_Surface* bg = SDL_LoadBMP("bg.bmp");  
     SDL_Surface* vert=NULL;
     Player *player = new Player();
     Wall *wallv=new Wall(300,300,"images/building_01.png");
-    building[0]=wallv;
-    SDL_Event event;
-    SDL_Surface* bg = SDL_LoadBMP("bg.bmp");  
+    Wall *wallx=new Wall(100,150,"images/building_02.png");
+    Wall *wally=new Wall(400,0,"images/building_03.png");
+
+    vector<Model *> world;
+    vector<Model *>::iterator it;
+
+    it = world.begin();
+    it = world.insert(it, wallv);
+    it = world.insert(it, wallx);
+    it = world.insert(it, wally);
+
     SDL_Init(SDL_INIT_EVERYTHING);
     SDL_EnableKeyRepeat(SDL_DEFAULT_REPEAT_DELAY, SDL_DEFAULT_REPEAT_INTERVAL);
     screen=SDL_SetVideoMode(800,600,32,SDL_HWSURFACE);
     SDL_WM_SetCaption("SHOЯTBUƧ","SHOЯTBUƧ");
-    // SDL_FillRect( screen, &screen->clip_rect, SDL_MapRGB( screen->format, 0xFF, 0xFF, 0xFF ) );
-    // Uint32 colorkey = SDL_MapRGB( bus->format, 0xFF, 0xFF, 0xFF );
-    // SDL_SetColorKey( bus, SDL_SRCCOLORKEY, colorkey );
-    //SDL_BlitSurface(bus,NULL,screen,NULL);
-    //x,y,width,height
-    //wallv.draw(740,500,32,64);
+
     bool done=false;
     // See http://en.wikipedia.org/wiki/Game_programming#Game_structure
     while(!done){
@@ -50,11 +52,13 @@ int main ( int argc, char** argv )
         
         // move enemies
         // collisions
-        player->getVehicle()->update(building);
+        player->getVehicle()->update(world);
         // draw graphics
         //LEAVE THIS NEXT LINE HERE
         SDL_BlitSurface(bg,NULL,screen,NULL);
         wallv->draw(screen,0);
+        wallx->draw(screen,0);
+        wally->draw(screen,0);
         player->drawVehicle(screen);
         SDL_Flip(screen);
         // play sounds
