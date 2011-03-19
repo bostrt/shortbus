@@ -5,9 +5,14 @@
 #endif
 #include <SDL/SDL.h>
 #include <iostream>
+
+#include "timer.hpp"
 #include "player.hpp"
 #include "wall.hpp"
 #include "aiopponent.hpp"
+
+const Uint32 FRAMES_PER_SEC = 30;
+
 using namespace std;
 
 SDL_Surface* screen;
@@ -40,11 +45,15 @@ int main ( int argc, char** argv )
 	SDL_Init(SDL_INIT_EVERYTHING);
 	SDL_EnableKeyRepeat(SDL_DEFAULT_REPEAT_DELAY, SDL_DEFAULT_REPEAT_INTERVAL);
 	screen=SDL_SetVideoMode(1200,1024,32,SDL_HWSURFACE);
-	SDL_WM_SetCaption("SHOЯTBUƧ","SHOЯTBUƧ");
+	SDL_WM_SetCaption("SHOЯTBUS","SHOЯTBUS");
 
-	bool done=false;
-	// See http://en.wikipedia.org/wiki/Game_programming#Game_structure
+	bool done = false;
+	int frame = 0;
+	Timer fps;
+
 	while(!done){
+		fps.start();
+		// See http://en.wikipedia.org/wiki/Game_programming#Game_structure
 		// Get user input.
 		do{
 			player->handleEvent(&event);
@@ -73,9 +82,17 @@ int main ( int argc, char** argv )
 		granny2->draw(screen,90);
 		granny3->draw(screen,90);
 		player->drawVehicle(screen);
-		SDL_Flip(screen);
+
+		if(SDL_Flip(screen) == -1)
+			return 1;
 		// play sounds
-		sleep(.4);
+
+		// Increment frame counter
+		frame ++;
+
+		if(fps.getTicks() < 1000 / FRAMES_PER_SEC){
+			SDL_Delay((1000/FRAMES_PER_SEC) - fps.getTicks());
+		}
 	}
 
 	return 0;
