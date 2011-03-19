@@ -6,13 +6,13 @@
 
 class Player {
 public:
-    int pointtotal;     
-    Player();
-    void handleEvent(SDL_Event *event);
-    void drawVehicle(SDL_Surface *screen);
-    Vehicle *getVehicle();
+	int pointtotal;
+	Player();
+	void handleEvent(SDL_Event *event);
+	void drawVehicle(SDL_Surface *screen);
+	Vehicle *getVehicle();
 private:
-    Vehicle *vehicle;
+	Vehicle *vehicle;
 };
 
 #endif

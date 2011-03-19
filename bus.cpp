@@ -5,5 +5,5 @@ using namespace std;
 
 Bus::Bus(double x, double y): Vehicle(x, y, "images/bus.png")
 {
-    
+
 }

@@ -14,129 +14,130 @@ using namespace std;
  */
 Vehicle::Vehicle(int x1, int y1, string filename):Model(x1, y1, filename)
 {
-    velocity=1;
-    direction=0;
+	velocity=1;
+	direction=0;
 }
 
 void Vehicle::accelerate(bool go)
 {
-    if(go){
-        if(velocity<=10)
-            velocity +=2;
-    }else{
-        if(velocity>=10)
-            velocity --;
-        else
-            velocity = 0;
-    }
+	if(go){
+		if(velocity<=10)
+			velocity +=2;
+	}else{
+		if(velocity>=10)
+			velocity --;
+		else
+			velocity = 0;
+	}
 }
 
 void Vehicle::reverse()
 {
-    if(velocity > -5)
-        velocity--;
+	if(velocity > -5)
+		velocity--;
 }
 
 // Add to direction
 void Vehicle::turnRight()
 {
-    if(direction < 0)
-        direction = 360;
-    direction -=2;
+	if(direction < 0)
+		direction = 360;
+	direction -=2;
 }
 
 // Subtract from direction
 void Vehicle::turnLeft()
 {
-    if(direction > 360)
-        direction = 0;
-    direction +=2;
+	if(direction > 360)
+		direction = 0;
+	direction +=2;
 }
 
 // Update the vehicle's X and Y position
 void Vehicle::update(vector<Model *> world)
 {
-    if(!checkWallCollisions(world)){
-        int dx = (-velocity)* sin(direction*3.14/180);
-        int dy = (-velocity)* cos(direction*3.14/180);
-        x+=dx;
-        y+=dy;
-    }
+	if(!checkWallCollisions(world)){
+		int dx = (-velocity)* sin(direction*3.14/180);
+		int dy = (-velocity)* cos(direction*3.14/180);
+		x+=dx;
+		y+=dy;
+	}
 }
 
 /**
  * Getters and Setters
  */
 double Vehicle::getVelocity(){
-    return velocity;
+	return velocity;
 }
 
 double Vehicle::getDirection(){
-    return direction;
+	return direction;
 }
 
 void Vehicle::setVelocity(double v){
-    velocity = v;
+	velocity = v;
 }
 
 void Vehicle::setDirection(double d){
-    direction = d;
+	direction = d;
 }
 
 void Vehicle::checkAiCollisions(vector<Model *> ais)
 {
-	 SDL_Surface *other = NULL;
-         double otherX = 0;
-         double otherY = 0;
-	
-       for(int i=0;i<ais.size();i++){
-          other = ais[i]->getSurface();
-          otherX = ais[i]->getX();
-          otherY = ais[i]->getY();
-          SDL_SetClipRect(image, &clip);
+	SDL_Surface *other = NULL;
+	double otherX = 0;
+	double otherY = 0;
 
-        if(SDL_CollidePixel(other, otherX, otherY, image, x, y, 4) != 0){
-             ((AiOpponent*) ais[i])->die(ais[i]);
+	for(int i=0;i<ais.size();i++){
+		other = ais[i]->getSurface();
+		otherX = ais[i]->getX();
+		otherY = ais[i]->getY();
+		//SDL_SetClipRect(image, &clip);
+
+		if(SDL_CollidePixel(other, otherX, otherY, image, x, y, 4) != 0){
+			((AiOpponent*) ais[i])->die(ais[i]);
+		}
 	}
-}	
 }
 
 bool Vehicle::checkWallCollisions(std::vector<Model *> worlds)
 {
-    SDL_Surface *other = NULL;
-    double otherX = 0;
-    double otherY = 0;
+	SDL_Surface *other = NULL;
+	double otherX = 0;
+	double otherY = 0;
 
-    // Loop over all models in the world...
-    for(int i = 0; i < worlds.size(); i++){
-        other = worlds[i]->getSurface();
-        otherX = worlds[i]->getX();
-        otherY = worlds[i]->getY();
-        SDL_SetClipRect(image, &clip);
+	// Loop over all models in the world...
+	for(int i = 0; i < worlds.size(); i++){
+		other = worlds[i]->getSurface();
+		otherX = worlds[i]->getX();
+		otherY = worlds[i]->getY();
+		//SDL_SetClipRect(image, &clip);
 
-        if(SDL_CollidePixel(other, otherX, otherY, image, x, y, 4) != 0){
-       //     cout <<  otherX << "\n";
-       //     cout <<  otherY << "\n\n";
-       //     cout <<  x << "\n";
-       //     cout <<  y << "\n\n";
-       // If world is left of player then repell player to right
-            if(otherX+other->w < (x+10)){
-                x ++;
-            }else if(otherX > x+clip.w){
-                // repell left
-                x --;
-            }
-            // If world is below player then repell player down
-            if(otherY+other->h < (y+10)){
-                y ++;
-            }else if(otherY > y+clip.h){
-                // repell up
-                y --;
-            }
-            return true;
-        }
-    }
-    return false;
+		if(SDL_CollidePixel(other, otherX, otherY, image, x, y, 4) != 0){
+			cout << "COLLIDE: ";
+
+			if(otherX > x){
+				cout << "1\n";
+				// repell left
+				x --;
+			}else if(x+20 > otherX+other->w){
+				cout << "2\n";
+				x ++;
+			}
+
+			if(otherY > y){
+				cout << "A\n";
+				// repell up
+				y --;
+			}else if(y+20 > otherY+other->h){
+				cout << "B\n";
+				y ++;
+			}
+			return true;
+		}
+	}
+	return false;
 }
 
 

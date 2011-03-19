@@ -8,10 +8,10 @@
 
 class Wall:public Model {
 public:
-    Wall(int xPos,int yPos,string filename);
-    virtual void update(std::vector<Model *> world);
+	Wall(int xPos,int yPos,string filename);
+	virtual void update(std::vector<Model *> world);
 private:
-    SDL_Surface *wall;
+	SDL_Surface *wall;
 };
 
 #endif
