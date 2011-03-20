@@ -97,9 +97,9 @@ int main ( int argc, char** argv )
 		wallx->draw(screen);
 		wally->draw(screen);
 		granny->update(ai);
-		granny->draw(screen,90);
-		granny2->draw(screen,90);
-		granny3->draw(screen,90);
+		granny->draw(screen);
+		granny2->draw(screen);
+		granny3->draw(screen);
 		player->drawVehicle(screen);
 
 		if(SDL_Flip(screen) == -1)

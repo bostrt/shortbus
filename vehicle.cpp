@@ -97,7 +97,7 @@ void Vehicle::checkAiCollisions(vector<Model *> ais)
 	SDL_Surface *other = NULL;
 	double otherX = 0;
 	double otherY = 0;
-
+if(velocity>0){
 	for(int i=0;i<ais.size();i++){
 		other = ais[i]->getSurface();
 		otherX = ais[i]->getX();
@@ -108,6 +108,7 @@ void Vehicle::checkAiCollisions(vector<Model *> ais)
 			((AiOpponent*) ais[i])->die(ais[i]);
 		}
 	}
+}
 }
 
 bool Vehicle::checkWallCollisions(std::vector<Model *> worlds)
