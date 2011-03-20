@@ -1,3 +1,6 @@
+#ifndef AIOPPONENT_H
+#define AIOPPONENT_H
+
 #include <SDL/SDL.h>
 #include <string>
 #include "model.hpp"
@@ -23,3 +26,4 @@ public:
 	void setDead(bool deathstatus);
 };
 
+#endif /* AIOPPONENT */

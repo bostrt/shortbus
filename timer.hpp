@@ -1,3 +1,6 @@
+#ifndef TIMER_H
+#define TIMER_H
+
 class Timer{
 private:
 	int startTicks;
@@ -16,3 +19,5 @@ public:
 	bool isStarted();
 	bool isPaused();
 };
+
+#endif /* TIMER_H */

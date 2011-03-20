@@ -87,7 +87,7 @@ int main ( int argc, char** argv )
 		// collisions
 		player->getVehicle()->update(world);
 		player->getVehicle()->checkAiCollisions(ai);
-		// drawb graphics
+		// draw graphics
 		//LEAVE THIS NEXT LINE HERE
 		//granny->draw(screen,90);
 		SDL_BlitSurface(bg,NULL,screen,NULL);
