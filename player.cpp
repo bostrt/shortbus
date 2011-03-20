@@ -1,11 +1,11 @@
 #include <SDL/SDL.h>
 #include <iostream>
+
 #include "player.hpp"
-#include "vehicle.hpp"
 #include "bus.hpp"
 
 using namespace std;
-extern SDL_Surface* screen;
+
 Player::Player()
 {
 	pointtotal=0;

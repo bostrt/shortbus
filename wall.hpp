@@ -4,6 +4,7 @@
 #include <SDL/SDL.h>
 #include <string>
 #include <vector>
+
 #include "model.hpp"
 
 class Wall:public Model {

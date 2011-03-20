@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+
 #include "model.hpp"
 
 using namespace std;

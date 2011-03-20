@@ -1,11 +1,13 @@
 #include <string>
 #include <iostream>
 #include <vector>
+
 #include "vehicle.hpp"
 #include "model.hpp"
 #include "math.h"
 #include "SDL_collide.h"
 #include "aiopponent.hpp"
+
 using namespace std;
 
 /**

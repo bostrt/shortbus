@@ -1,9 +1,11 @@
 #include <SDL/SDL.h>
 #include <string>
 #include <iostream>
-#include "model.hpp"
 #include <SDL/SDL_rotozoom.h>
 #include <SDL/SDL_image.h>
+
+#include "model.hpp"
+
 using namespace std;
 
 // Constructor

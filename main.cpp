@@ -10,6 +10,8 @@
 #include "player.hpp"
 #include "wall.hpp"
 #include "aiopponent.hpp"
+#include "gamestate.hpp"
+#include "playstate.hpp"
 
 const Uint32 FRAMES_PER_SEC = 30;
 
@@ -46,7 +48,7 @@ int main ( int argc, char** argv )
 	SDL_EnableKeyRepeat(SDL_DEFAULT_REPEAT_DELAY, SDL_DEFAULT_REPEAT_INTERVAL);
 	screen=SDL_SetVideoMode(1200,1024,32,SDL_HWSURFACE);
 	SDL_WM_SetCaption("SHOЯTBUS","SHOЯTBUS");
-
+	GameState *state = new PlayState(screen);
 	bool done = false;
 	int frame = 0;
 	Timer fps;

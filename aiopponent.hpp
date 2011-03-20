@@ -3,9 +3,12 @@
 
 #include <SDL/SDL.h>
 #include <string>
-#include "model.hpp"
 #include <vector>
+
+#include "model.hpp"
+
 using namespace std;
+
 class AiOpponent:public Model{
 public:
 	bool dead;

@@ -1,19 +1,18 @@
 #include <SDL/SDL.h>
-#include "aiopponent.hpp"
 #include <string>
-#include "model.hpp"
 #include <vector>
 #include <SDL/SDL_image.h>
 #include <iostream>
-#include "SDL_collide.h"
 #include <SDL/SDL_rotozoom.h>
+
+#include "aiopponent.hpp"
+#include "SDL_collide.h"
+
 using namespace std;
 
 AiOpponent::AiOpponent(int x1,int y1, string filename, int pts):Model(x1,y1,filename){
-	flip=true;
-	points=pts;
-
-
+	flip = true;
+	points = pts;
 }
 void AiOpponent::update(std::vector<Model *> world){
 	//insert movement and deathcalls here

@@ -1,4 +1,3 @@
-#include "vehicle.hpp"
 #include "bus.hpp"
 
 using namespace std;
