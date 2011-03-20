@@ -16,7 +16,7 @@ AiOpponent::AiOpponent(int x1,int y1, string filename, int pts):Model(x1,y1,file
 }
 void AiOpponent::update(std::vector<Model *> world){
 	//insert movement and deathcalls here
-
+//stuff
 	for(int i=0;i<world.size();i++){
 		if(((AiOpponent*)world[i])->isDead()==false){
 			if(((AiOpponent*)world[i])->getDirection()==1){
