@@ -8,7 +8,7 @@ class Player {
 public:
 	int pointtotal;
 	Player();
-	void handleEvent(SDL_Event *event);
+	void handleKeys(Uint8 *keys);
 	void drawVehicle(SDL_Surface *screen);
 	Vehicle *getVehicle();
 private:

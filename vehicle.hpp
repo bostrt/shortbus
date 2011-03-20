@@ -21,6 +21,7 @@ public:
 	double getDirection();
 	void setVelocity(double v);
 	void setDirection(double d);
+	void reset();
 	virtual void update(vector<Model *> world);
 	void checkAiCollisions(vector<Model *> ais);
 	bool checkWallCollisions(vector<Model *> world);

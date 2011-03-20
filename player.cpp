@@ -12,16 +12,15 @@ Player::Player()
 	vehicle = new Bus(400,200);
 }
 
-void Player::handleEvent(SDL_Event *event)
-{   //trying key state so we can have multiple inputs
-	Uint8* keys= SDL_GetKeyState(NULL);
-
+void Player::handleKeys(Uint8 *keys)
+{
 	// Handle keyboard event
 	if(keys[SDLK_UP]){
 		vehicle->accelerate(true);
 	}else if(keys[SDLK_DOWN]){
 		vehicle->reverse();
-	}
+	}else if(keys[SDLK_r])
+		vehicle->reset();
 	else{
 		vehicle->accelerate(false);
 	}

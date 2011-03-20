@@ -50,19 +50,36 @@ int main ( int argc, char** argv )
 	bool done = false;
 	int frame = 0;
 	Timer fps;
-
+	fps.start();
 	while(!done){
-		fps.start();
+
 		// See http://en.wikipedia.org/wiki/Game_programming#Game_structure
 		// Get user input.
 		do{
-			player->handleEvent(&event);
-			if(event.type==SDL_QUIT){
-				done=true;
-			}
-			//SDL_PumpEvents();
+			Uint8* keys= SDL_GetKeyState(NULL);
+			if(!fps.isPaused())
+				player->handleKeys(keys);
 
+			if(event.type==SDL_QUIT){
+				done = true;
+			}
+
+			if(event.type == SDL_KEYDOWN){
+				if(keys[SDLK_ESCAPE]){
+					done = true;
+				}
+				else if(keys[SDLK_SPACE]){
+					if(fps.isPaused())
+						fps.unpause();
+				}
+				else if(keys[SDLK_p])
+					if(!fps.isPaused())
+						fps.pause();
+			}
 		}while(SDL_PollEvent(&event));
+
+		if(fps.isPaused())
+			continue;
 
 		// AI
 

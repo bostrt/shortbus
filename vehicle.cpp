@@ -53,6 +53,13 @@ void Vehicle::turnLeft()
 	direction +=2;
 }
 
+void Vehicle::reset()
+{
+	x = 400;
+	y = 200;
+	velocity = 0;
+}
+
 // Update the vehicle's X and Y position
 void Vehicle::update(vector<Model *> world)
 {
@@ -139,7 +146,3 @@ bool Vehicle::checkWallCollisions(std::vector<Model *> worlds)
 	}
 	return false;
 }
-
-
-
-
