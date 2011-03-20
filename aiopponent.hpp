@@ -27,6 +27,7 @@ public:
 	void setDirection(int direction);
 	bool isDead();
 	void setDead(bool deathstatus);
+	int returnPoints();
 };
 
 #endif /* AIOPPONENT */

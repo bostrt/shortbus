@@ -74,3 +74,6 @@ void AiOpponent::setDead(bool deathstatus){
 bool AiOpponent::isDead(){
 	return dead;
 }
+int AiOpponent::returnPoints(){
+	return points;
+}
