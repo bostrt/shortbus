@@ -22,10 +22,12 @@ void GameState::run()
 	fps->start();
 
 	// Begin game loop
-	while(!done)
-	{
+	while(!done){
 		done = update();
 		draw(screen);
+        if(SDL_Flip(screen) == -1){
+            done = true;
+        }
 		// Increment frame counter
 		frame ++;
 		// Regulate FPS
