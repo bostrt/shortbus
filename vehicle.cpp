@@ -125,23 +125,18 @@ bool Vehicle::checkWallCollisions(std::vector<Model *> worlds)
 		//SDL_SetClipRect(image, &clip);
 
 		if(SDL_CollidePixel(other, otherX, otherY, image, x, y, 4) != 0){
-			cout << "COLLIDE: ";
 
 			if(otherX > x){
-				cout << "1\n";
 				// repell left
 				x --;
 			}else if(x+20 > otherX+other->w){
-				cout << "2\n";
 				x ++;
 			}
 
 			if(otherY > y){
-				cout << "A\n";
 				// repell up
 				y --;
 			}else if(y+20 > otherY+other->h){
-				cout << "B\n";
 				y ++;
 			}
 			return true;

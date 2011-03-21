@@ -27,7 +27,7 @@ public:
 	 * be handled.
 	 * TODO: Should keyboard state, mouse state, <?> state be passed to this?
 	 */
-	virtual void update() = 0;
+	virtual bool update() = 0;
 	/*
 	 * Draw all objects to the passed screen.
 	 */
@@ -40,7 +40,7 @@ public:
 	void setScreen(SDL_Surface *s);
 	Timer *getFpsTimer();
 	void setFpsTimer(Timer *t);
-private:
+protected:
 	SDL_Surface *screen;
 	Timer *fps;
 };

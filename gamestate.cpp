@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "gamestate.hpp"
 #include "timer.hpp"
 
@@ -22,7 +24,7 @@ void GameState::run()
 	// Begin game loop
 	while(!done)
 	{
-		update();
+		done = update();
 		draw(screen);
 		// Increment frame counter
 		frame ++;
