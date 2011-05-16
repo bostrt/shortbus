@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="10" height="10" tilewidth="64" tileheight="64">
+ <tileset firstgid="1" name="collision" tilewidth="64" tileheight="64">
+  <image source="../../Desktop/red2.png" width="64" height="64"/>
+  <tile id="0">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Tile Layer 1" width="10" height="10" opacity="0.39">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NkYGBgJAEzEKBhbHxgJJtHCAMANQbeepABAAA=
+  </data>
+ </layer>
+ <objectgroup name="Object Layer 1" width="10" height="10">
+  <properties>
+   <property name="" value=""/>
+  </properties>
+  <object x="64" y="63" width="63" height="65">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </object>
+  <object x="-2" y="46" width="65" height="593">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </object>
+  <object x="42" y="575" width="597" height="68">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </object>
+  <object x="574" y="41" width="65" height="552">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </object>
+  <object x="1" y="1" width="637" height="63">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </object>
+  <object x="192" y="63" width="64" height="65">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </object>
+  <object x="320" y="63" width="65" height="63">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </object>
+  <object x="448" y="65" width="65" height="62">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </object>
+  <object x="448" y="192" width="65" height="64"/>
+  <object x="450" y="320" width="63" height="64"/>
+  <object x="192" y="194" width="63" height="62"/>
+  <object x="320" y="190" width="63" height="65"/>
+  <object x="64" y="190" width="65" height="69"/>
+  <object x="64" y="319" width="65" height="66"/>
+  <object x="193" y="320" width="63" height="63"/>
+  <object x="323" y="322" width="60" height="61"/>
+  <object x="448" y="450" width="63" height="64"/>
+  <object x="321" y="449" width="63" height="64"/>
+  <object x="192" y="447" width="63" height="64"/>
+  <object x="64" y="447" width="64" height="65"/>
+ </objectgroup>
+</map>

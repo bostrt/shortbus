@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="30" height="30" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="collisions" tilewidth="32" tileheight="32">
+  <image source="../../Desktop/red.png" width="32" height="32"/>
+  <tile id="0">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="2" name="buildings" tilewidth="32" tileheight="32">
+  <image source="../../Desktop/blue.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="3" name="roads" tilewidth="32" tileheight="32">
+  <image source="../../Desktop/green.png" width="32" height="32"/>
+ </tileset>
+ <layer name="collisions" width="30" height="30">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+2RIRIAMAyD2v9/er4+GQLuIqIQ7Mzsp7W53taneFtQvPbNQPHaNwPFa98MFK99M1C89s1A8do3w/U39wDJcGW2EA4AAA==
+  </data>
+ </layer>
+ <layer name="city" width="30" height="30" opacity="0.22">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NmYGBgHkGYCY1NL/5A2TvS8Gj8Dm88Gr/DG4/G7/DGo/E7vPFo/A5vPBq/wxsDAKC9Df8QDgAA
+  </data>
+ </layer>
+</map>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="25" height="25" tilewidth="64" tileheight="64">
+ <tileset firstgid="1" name="collision" tilewidth="64" tileheight="64">
+  <image source="../../Desktop/red2.png" width="64" height="64"/>
+  <tile id="0">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="2" name="topbounds" tilewidth="64" tileheight="64">
+  <image source="../../Desktop/blue2.png" width="64" height="64"/>
+ </tileset>
+ <layer name="collide" width="25" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NkYGBgpCFmQKJpAUbtGLVj1I5RO0btGLVj1I5RO0i1g9ZtH3oAAG5Q4wvECQAA
+  </data>
+ </layer>
+ <layer name="tope" width="25" height="25" opacity="0.42">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NiYGBgogOmJRi1Y9SOUTtG7Ri1Y9SOUTtG7RhsdtAaAwAP9dBLxAkAAA==
+  </data>
+ </layer>
+</map>
