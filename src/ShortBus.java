@@ -1,10 +1,7 @@
-import org.newdawn.slick.AppGameContainer;
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.SlickException;
-import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.*;
+import org.newdawn.slick.state.*;
 
-import state.Pause;
-import state.Play;
+import state.*;
 
 public class ShortBus extends StateBasedGame
 {
@@ -27,6 +24,7 @@ public class ShortBus extends StateBasedGame
 	{
 		addState(new Play());
 		addState(new Pause());
+		addState(new Garage());
 	}
 
 }

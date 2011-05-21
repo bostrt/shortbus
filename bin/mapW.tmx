@@ -14,14 +14,23 @@
  <tileset firstgid="3" name="roads" tilewidth="64" tileheight="64">
   <image source="green2.png" width="64" height="64"/>
  </tileset>
+ <tileset firstgid="4" name="garage" tilewidth="64" tileheight="64">
+  <image source="orange2.png" width="64" height="64"/>
+  <tile id="0">
+   <properties>
+    <property name="garage" value="true"/>
+    <property name="opening" value="south"/>
+   </properties>
+  </tile>
+ </tileset>
  <layer name="Collisions" width="25" height="25" opacity="0.35">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+XUSwoAIAgEUL3/pdu3sMnPaDTgKuJJoSoiSqjKdBmW6znrMrxhGLf2RMOaA8RA5ugFI5pJRqSX/a7nTdG/YhoV+cHI3jMR47QHMnplGGgPDKO6FpTHJT7ECQAA
+   H4sIAAAAAAAAC+XUQQoAIAgEQIX+/+buHczUXYUWPEWMRKoiooRCpsuw3MhZlxENw3i1JxrWHHgMzxxVGAtsZDPJyPRy3o28qfc/MA1EfjCq90zGuO2ail4ZhrcHhoGuDdZHmkTECQAA
   </data>
  </layer>
- <layer name="City" width="25" height="25">
+ <layer name="City" width="25" height="25" opacity="0.22">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NmYGBgHsVkYSYopqbcQNhBC/+PYsxwIjesiNE/FOwYTpia4YDLLGrmb3rYMYqpG/8DYQc98vhoOUJdDAClgwvqxAkAAA==
+   H4sIAAAAAAAAC2NmYGBgHsVkYSYopqbcQNhBC/+PYsxwIjesiNFPDTtYaGzHcMLUDAdcZlEzf9PDjlFM3fgfCDvokcdHyxHqYgDmgfEPxAkAAA==
   </data>
  </layer>
 </map>

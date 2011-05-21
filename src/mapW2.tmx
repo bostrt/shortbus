@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="25" height="25" tilewidth="64" tileheight="64">
+ <tileset firstgid="1" name="collision" tilewidth="64" tileheight="64">
+  <image source="red2.png" width="64" height="64"/>
+  <tile id="0">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="2" name="building01" tilewidth="128" tileheight="128">
+  <image source="building_010.png" trans="ffffff" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="3" name="building02" tilewidth="256" tileheight="128">
+  <image source="building_020.png" trans="ffffff" width="256" height="128"/>
+ </tileset>
+ <tileset firstgid="4" name="building03" tilewidth="256" tileheight="192">
+  <image source="building_030.png" trans="ffffff" width="256" height="192"/>
+ </tileset>
+ <tileset firstgid="5" name="garageE" tilewidth="64" tileheight="64">
+  <image source="orange2.png" trans="ffffff" width="64" height="64"/>
+  <tile id="0">
+   <properties>
+    <property name="garage" value="true"/>
+    <property name="opening" value="east"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="6" name="garageW" tilewidth="64" tileheight="64">
+  <image source="orange2.png" trans="ffffff" width="64" height="64"/>
+  <tile id="0">
+   <properties>
+    <property name="garage" value="true"/>
+    <property name="opening" value="west"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="7" name="garageN" tilewidth="64" tileheight="64">
+  <image source="orange2.png" trans="ffffff" width="64" height="64"/>
+  <tile id="0">
+   <properties>
+    <property name="garage" value="true"/>
+    <property name="opening" value="north"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="8" name="garageS" tilewidth="64" tileheight="64">
+  <image source="orange2.png" trans="ffffff" width="64" height="64"/>
+  <tile id="0">
+   <properties>
+    <property name="garage" value="true"/>
+    <property name="opening" value="south"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="actions" width="25" height="25" opacity="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NkYGBgpAOmJSDGDkLuIVaekB0ceNSyIcmxkmkHIUANf1AKRood1IwvcuRB4uwUmkEIEJuPB0N8UNsOapZh2MwdLHaQ6wZS1NPDDnLBQNlB7bKamnbg0kfNsKKHHYTspocdtMYAa3kRcMQJAAA=
+  </data>
+ </layer>
+ <layer name="map" width="25" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAXUAswD7QAgYBloB4wCqgKmAbZ/MKTpUUAcwJVWBkOZMJqOBgYQCveBLF9G0wR1AAAGv9TSxAkAAA==
+  </data>
+ </layer>
+</map>

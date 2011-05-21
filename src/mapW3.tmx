@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="25" height="25" tilewidth="64" tileheight="64">
+ <tileset firstgid="1" source="building01.tsx"/>
+ <tileset firstgid="2" source="building02.tsx"/>
+ <tileset firstgid="3" source="building03.tsx"/>
+ <tileset firstgid="4" source="collision.tsx"/>
+ <tileset firstgid="5" source="garageN.tsx"/>
+ <tileset firstgid="6" source="garageE.tsx"/>
+ <tileset firstgid="7" source="garageS.tsx"/>
+ <tileset firstgid="8" source="garageW.tsx"/>
+ <tileset firstgid="9" name="cleanRoad" tilewidth="128" tileheight="64">
+  <image source="road_slices_010.png" trans="ffffff" width="128" height="64"/>
+ </tileset>
+ <tileset firstgid="10" name="bloodRoad1" tilewidth="128" tileheight="64">
+  <image source="road_slices_020.png" trans="ffffff" width="128" height="64"/>
+ </tileset>
+ <tileset firstgid="11" name="bloodRoad2" tilewidth="128" tileheight="64">
+  <image source="road_slices_030.png" trans="ffffff" width="128" height="64"/>
+ </tileset>
+ <tileset firstgid="12" name="potRoad" tilewidth="128" tileheight="64">
+  <image source="road_slices_040.png" trans="ffffff" width="128" height="64"/>
+ </tileset>
+ <tileset firstgid="13" name="intersection" tilewidth="128" tileheight="128">
+  <image source="road_slices_000.png" trans="ffffff" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="14" name="cleanRoad2" tilewidth="64" tileheight="128">
+  <image source="road_slices_010b.png" trans="ffffff" width="64" height="128"/>
+ </tileset>
+ <layer name="events" width="25" height="25" opacity="0.51">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NhYGBgoQOmJRgIO3Dx0cVYoRiXWmLMJGQHOeL0tIMWYDDH+Wh80MeO0fjADUbjYzQ+RuMDN6CnHbTGAE4QPivECQAA
+  </data>
+ </layer>
+ <layer name="city" width="25" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGD6AF0rzQTE6H5cYMeIwwEmAj0uMFHEYnxELH12MHnYw49CLS5yeYCTGORMOvbjE6QlG42M0PrD5kxuH+7hwiFMzPrhwiI+U+MAW9qP5AwLoER+0BgAkww7cxAkAAA==
+  </data>
+ </layer>
+</map>

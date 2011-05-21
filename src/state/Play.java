@@ -48,32 +48,46 @@ public class Play extends BasicGameState
 	private static final float BUS_ROTATE_SPEED = 0.2f;
 
 	@Override
-	public void update(GameContainer container, StateBasedGame sbg, int delta)
-	throws SlickException
+	public void update(GameContainer container, StateBasedGame sbg, int delta) throws SlickException
 	{
+		int tileID = map.getTileId((int)x,(int)y, 0);
+		String value = map.getTileProperty(tileID, "garage", "false");
+		if("true".equals(value))
+		{
+			String temp = (map.getTileProperty(tileID, "opening", "none"));
+			if(temp.equals("north")){
+				tryMove(0,-.25);
+			}else if(temp.equals("east")){
+				tryMove(.25,0);
+			}else if(temp.equals("south")){
+				tryMove(0,.25);
+			}else if(temp.equals("west")){
+				tryMove(-.25,0);
+			}else if(temp.equals("none")){
+				System.out.println("ERROR ERROR ERROR");
+			}
+			sbg.enterState(2);
+		}
+		
 		Input input = container.getInput();
 		if (input.isKeyDown(Input.KEY_LEFT)) {
 			angle -= delta * BUS_ROTATE_SPEED;
-			bounds.transform(Transform.createRotateTransform(-BUS_ROTATE_SPEED
-					* delta));
+			bounds.transform(Transform.createRotateTransform(-BUS_ROTATE_SPEED* delta));
 			updateMovementVector();
 		}
 		if (input.isKeyDown(Input.KEY_RIGHT)) {
 			angle += delta * BUS_ROTATE_SPEED;
-			bounds.transform(Transform.createRotateTransform(BUS_ROTATE_SPEED
-					* delta));
+			bounds.transform(Transform.createRotateTransform(BUS_ROTATE_SPEED* delta));
 			updateMovementVector();
 		}
 		if (input.isKeyDown(Input.KEY_UP)) {
-			if (tryMove(dirX * delta * BUS_MOVE_SPEED, dirY * delta
-					* BUS_MOVE_SPEED)) {
+			if (tryMove(dirX * delta * BUS_MOVE_SPEED, dirY * delta* BUS_MOVE_SPEED)) {
 				// if we managed to move update the animation
 				shortbus.update(delta);
 			}
 		}
 		if (input.isKeyDown(Input.KEY_DOWN)) {
-			if (tryMove(-dirX * delta * BUS_MOVE_SPEED, -dirY * delta
-					* BUS_MOVE_SPEED)) {
+			if (tryMove(-dirX * delta * BUS_MOVE_SPEED, -dirY * delta* BUS_MOVE_SPEED)) {
 				// if we managed to move update the animation
 				shortbus.update(delta);
 			}
@@ -82,6 +96,9 @@ public class Play extends BasicGameState
 			sbg.enterState(Pause.PAUSE_STATE);
 		}
 		
+		if (container.getInput().isKeyDown(Input.KEY_T)) {
+			testBlocked();
+		}
 	}
 
 	private void updateMovementVector()
@@ -90,51 +107,39 @@ public class Play extends BasicGameState
 		dirY = (float) -Math.cos(Math.toRadians(angle));
 	}
 
-	private boolean blocked(double dx, double dy)
-	{
-		System.out.println(Math.round(dx - shortbus.getWidth()
-				/ (float) tileWidth));
-		System.out.println((Math.round(dy - .125 * shortbus.getWidth()
-				/ (float) tileWidth)));
-		return blocked[(int) (Math.round(dx - shortbus.getWidth()
-				/ (float) tileWidth))][(int) (Math.round(dy - .125
-				* shortbus.getWidth() / (float) tileWidth))];
+	private boolean blocked(double dx, double dy) {
+		int newx=(int)(dx+(.5*(float)shortbus.getHeight()/(float)tileWidth-.25));
+		int newy=(int)(dy+(.5*(float)shortbus.getWidth()/(float)tileWidth+.25));
+		return blocked[newx][newy];
 	}
 
-	private boolean tryMove(double newxx, double newyy)
-	{
+	private boolean tryMove(double newxx, double newyy){
 		float newx = (float) (x + newxx);
 		float newy = (float) (y + newyy);
 
 		Polygon test = bounds;
-		test = (Polygon) test.transform(Transform.createTranslateTransform(
-				(float) (newxx), (float) (newyy)));
+		test = (Polygon) test.transform(Transform.createTranslateTransform((float) (newxx), (float) (newyy)));
 
 		if (!testPolygon(test)) {
 			test = bounds;
-			test = (Polygon) test.transform(Transform.createTranslateTransform(
-					(float) (newxx), 0));
+			test = (Polygon) test.transform(Transform.createTranslateTransform((float) (newxx), 0));
 			if (!testPolygon(test)) {
 				test = bounds;
-				test = (Polygon) test.transform(Transform
-						.createTranslateTransform(0, (float) (newyy)));
+				test = (Polygon) test.transform(Transform.createTranslateTransform(0, (float) (newyy)));
 				if (!testPolygon(test)) {
 					// can't move at all!
 					return false;
-				}
-				else {
+				} else {
 					bounds = test;
 					y = newy;
 					return true;
 				}
-			}
-			else {
+			} else {
 				bounds = test;
 				x = newx;
 				return true;
 			}
-		}
-		else {
+		} else {
 			bounds = test;
 			x = newx;
 			y = newy;
@@ -142,24 +147,35 @@ public class Play extends BasicGameState
 		}
 
 	}
-
+	
+	private void testBlocked(){
+		System.out.println();
+		float[] points= bounds.getPoints();	
+		boolean test = false;
+		for(int i=0; i<points.length; i+=2){
+			if(blocked(points[i], points[i+1])) test=true;
+			int newx=(int)(points[i]+(.5*(float)shortbus.getHeight()/(float)tileWidth-.25));
+		    int newy=(int)(points[i+1]+(.5*(float)shortbus.getWidth()/(float)tileWidth+.25));
+			System.out.println();
+			System.out.println("NewX: "+ newx);
+			System.out.println("NewY: "+ newy);
+		}
+		System.out.println(test);
+		System.out.println(shortbus.getWidth());
+		System.out.println(shortbus.getHeight());
+	}
+	
 	private boolean testPolygon(Polygon test)
 	{
-		System.out.println("MaxX: " + test.getMaxX());
+/*		System.out.println("MaxX: " + test.getMaxX());
 		System.out.println("MaxY: " + test.getMaxY());
 		System.out.println("MinX: " + test.getMinX());
-		System.out.println("MinY: " + test.getMinY());
-		if (blocked(test.getMaxX(), test.getMaxY()))
-			return false;
-		else if (blocked(test.getMaxX(), test.getMinY()))
-			return false;
-		else if (blocked(test.getMinX(), test.getMaxY()))
-			return false;
-		else if (blocked(test.getMinX(), test.getMinY()))
-			return false;
-		else
-			return true;
-
+		System.out.println("MinY: " + test.getMinY());*/
+		float[] points= test.getPoints();		
+		for(int i=0; i<points.length; i+=2){
+			if(blocked(points[i], points[i+1])) return false;
+		}
+		return true;
 	}
 
 	private void createPolygon()
@@ -185,9 +201,7 @@ public class Play extends BasicGameState
 	 * org.newdawn.slick.Graphics)
 	 */
 	@Override
-	public void render(GameContainer container, StateBasedGame sbg, Graphics g)	
-	throws SlickException
-	{
+	public void render(GameContainer container, StateBasedGame sbg, Graphics g)	throws SlickException{
 		int playerTileX = (int) x;
 		int playerTileY = (int) y;
 
@@ -204,10 +218,12 @@ public class Play extends BasicGameState
 		// a little extra map around the edge of the screen to cope with tiles
 		// scrolling on and off
 		// the screen
-		map.render(playerTileOffsetX - (tileWidth / 2), playerTileOffsetY
-				- (tileWidth / 2), playerTileX - leftOffsetInTiles - 1,
-				playerTileY - topOffsetInTiles - 1, widthInTiles + 3,
-				heightInTiles + 3);
+		map.render(playerTileOffsetX - (tileWidth / 2), 
+				playerTileOffsetY- (tileWidth / 2), 
+				playerTileX - leftOffsetInTiles - 1,
+				playerTileY - topOffsetInTiles - 1, 
+				widthInTiles + 5, heightInTiles +5,
+				1, false);
 
 		// draw entities relative to the player that must appear in the centre
 		// of the screen
@@ -263,9 +279,9 @@ public class Play extends BasicGameState
 	{
 		// bg = new Image("src/bg.png");
 		shortbus = new Animation();
-		shortbus.addFrame(new Image("src/whiteBus3.png"), 1);
+		shortbus.addFrame(new Image("src/whiteBus.png"), 1);
 		shortbus.setAutoUpdate(false);
-		map = new TiledMap("src/mapW.tmx");
+		map = new TiledMap("src/mapW3.tmx");
 		tileWidth = map.getTileHeight();
 
 		// caculate some layout values for rendering the tilemap. How many tiles
